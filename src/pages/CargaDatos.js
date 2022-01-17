@@ -2,6 +2,7 @@ import React, { useState,  useEffect} from "react";
 
 import db from '../firebase/config'
 import { doc, setDoc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 
 import "../css/cargaDatos.css";
 
@@ -13,7 +14,7 @@ const CargaDatos = () =>{
     
     const [tarea, setTarea] = useState('');
     const [descripcion, setDescripcion] = useState('');
-    const [estadio, setEstadio] = useState('')
+    const [estadio, setEstadio] = useState('toDo')
 
 
     // Función para cargar datos 
@@ -22,12 +23,17 @@ const CargaDatos = () =>{
 
         event.preventDefault()
 
-        await setDoc(doc(db, "tareas", Date()), {
-            tarea: {tarea},
-            descipcion: {descripcion},
-            estadio: {estadio}, 
-            fecha: Date()
-          });
+          try {
+            await addDoc(collection(db, "tareas"), {
+                tarea: tarea,
+                descripcion: descripcion,
+                estadio: estadio, 
+                fecha: Date()
+            });
+           
+          } catch (e) {
+            console.error("Ocurrió un error al cargar la tarea: ", e);
+          }
 
           setTarea('');
           setDescripcion('');
@@ -35,9 +41,7 @@ const CargaDatos = () =>{
       
       }
 
-console.log(tarea)
-console.log(descripcion)
-console.log(estadio)
+
 
  return(
 
