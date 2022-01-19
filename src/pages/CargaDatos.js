@@ -1,14 +1,14 @@
-import React, { useState,  useEffect} from "react";
+import React, { useState} from "react";
 
 import db from '../firebase/config'
-import { doc, setDoc } from "firebase/firestore";
+
 import { collection, addDoc } from "firebase/firestore";
 
 import "../css/cargaDatos.css";
 
 
 
-const CargaDatos = () =>{
+const CargaDatos = ({trigger, setTrigger}) =>{
 
     // States para los datos
     
@@ -30,6 +30,8 @@ const CargaDatos = () =>{
                 estadio: estadio, 
                 fecha: Date()
             });
+
+            setTrigger(!trigger)
            
           } catch (e) {
             console.error("Ocurrió un error al cargar la tarea: ", e);

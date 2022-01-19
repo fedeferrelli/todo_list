@@ -4,13 +4,16 @@ import db from "./firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 
 import CargaDatos from '../src/pages/CargaDatos';
-import ToDo from '../src/pages/ToDo'
+import Tasks from './pages/Tasks';
+import ShowTasks from './pages/ShowTasks'
 
 
 
 function App() {
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([])
+
+  const [trigger, setTrigger] = useState(false)
 
    useEffect(() => {
     
@@ -31,16 +34,21 @@ function App() {
 
 getData()
 
-  }, []) 
+  }, [trigger]) 
 
 
-console.log(data)
   return (
+<>
 
-    <ToDo data={data} />
-   /*  <CargaDatos/ > */
+    <ShowTasks
+     data={data}
+     />
     
-    
+ {  <CargaDatos 
+      setTrigger = {setTrigger}
+      trigger = {trigger}
+    />}
+   </>    
     );
 }
 
