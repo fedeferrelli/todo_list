@@ -18,6 +18,11 @@ const getDays = (date) =>{
                 'titleDone' } >{title}</h1>
      
 <div className="container">
+
+<div className='tasks-number-conteiner'>
+    <div className='tasks-number'>{data.length}</div>
+</div>
+
     { data.length<1 ?
      
      <p className='loading'>No se cargaron tareas</p> : 

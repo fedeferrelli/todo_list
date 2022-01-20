@@ -1,7 +1,7 @@
 .search-and-add {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content:left;
   align-items: center;
   margin-top: 1rem;
   margin-right: auto;
@@ -51,6 +51,11 @@
 
   .search {
     width: 30%;
-    font-size: 16px;
+    font-size: 0.4rem;
+  }
+
+  .add-button{
+    width: 40%;
+    font-size: 0.4rem;
   }
 }

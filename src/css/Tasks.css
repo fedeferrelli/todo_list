@@ -19,6 +19,28 @@
   border-radius: 0.25rem;
   background-color: #fff;
   transition-duration: 400ms;
+  position: relative;
+}
+
+.tasks-number-conteiner{
+    position: absolute;
+    top: calc(-1.3rem/2);
+    left: calc(50% - 1.3rem/2);
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 100%;
+    background: linear-gradient(45deg, #041562, #4f73a5);
+    display: flex;
+    box-shadow: darkgray 0px 0px 3px;
+    justify-content: center;
+}
+
+.tasks-number{
+    font-size: calc(1.3rem/2.5);
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-weight: bold;
 }
 
 .tasks:hover {
@@ -51,6 +73,7 @@
 }
 
 .container {
+  
   padding: 0.25rem;
 }
 
@@ -107,6 +130,7 @@
 
   .tasks {
     width: 100%;
+    margin-top: 0.5rem;
   }
 
   .tasks:hover {
