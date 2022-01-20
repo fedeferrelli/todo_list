@@ -20,7 +20,7 @@ const getDays = (date) =>{
 <div className="container">
     { data.length<1 ?
      
-     'esperando' : 
+     <p className='loading'>No se cargaron tareas</p> : 
 
      data.map((item) => {
          return(

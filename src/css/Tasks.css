@@ -1,131 +1,123 @@
-*{
-    font-size: 16px;
-
+* {
+  font-size: 16px;
 }
 
-
-.showTasks{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 70%;
-    margin: auto;
-
-   /*  border: 1px solid orange; */
-   
+.showTasks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 1.5rem;
+  padding-top: 0.5rem;
 }
 
-.tasks{
-
-    margin-top: 0.5rem;
-    width: 30%;
-    box-shadow: darkgray 0px 0px 10px;
-    border-radius: 0.25rem;
-    background-color: #fff;
-
-    /* border: solid blue 1px; */
-
-   
+.tasks {
+  margin-top: 0.55rem;
+  width: 30%;
+  box-shadow: darkgray 0px 0px 10px;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  transition-duration: 400ms;
 }
 
-.tasks:hover{
-    transform: scale(1.02);
-    
-    box-shadow: darkgray 0px 0px 1.25rem;
-    transition-duration: 400ms;
-    
+.tasks:hover {
+  transform: scale(1.02);
+
+  box-shadow: darkgray 0px 0px 1.25rem;
 }
 
-.titleToDo, .titleProgress, .titleDone{
-    background: linear-gradient(45deg, #041562, #4f73a5);
-    font-size: 0.75rem;
-   
-    vertical-align: middle;
-    text-align: center;
-    color: #fff;
-    margin: 0;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
+.titleToDo,
+.titleProgress,
+.titleDone {
+  background: linear-gradient(45deg, #041562, #4f73a5);
+  font-size: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
 
-.titleProgress{
-    background: #3062a7;
+.titleProgress {
+  background: #3062a7;
 }
 
-.titleDone{
-    background: linear-gradient(45deg, #4f73a5,  #041562 );
+.titleDone {
+  background: linear-gradient(45deg, #4f73a5, #041562);
 }
 
-.container{
-    padding: 0.25rem;
+.container {
+  padding: 0.25rem;
 }
 
-.task{
-    border-bottom: solid 0.025rem lightblue;
-    margin-bottom: 0.5rem;
+.task {
+  border-bottom: solid 0.025rem lightblue;
+  margin-bottom: 0.5rem;
 }
 
-.task:hover{
-    border-bottom: solid 0.025px rgba(240, 89, 207, 1);
-    background: rgba(240, 89, 207, 0.25);
-    transition-duration: 1000ms;
-
+.task:hover {
+  border-bottom: solid 0.025px rgba(240, 89, 207, 1);
+  background: rgba(240, 89, 207, 0.25);
+  transition-duration: 1000ms;
 }
 
-.taskTitle, .taskDays, .taskDescription{
-    margin: 0%;
-    text-transform: capitalize;
-    font-size: 0.75rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(110, 109, 109);
-    font-weight: bold;
+.taskTitle,
+.taskDays,
+.taskDescription,
+.loading {
+  margin: 0%;
+  text-transform: capitalize;
+  font-size: 0.75rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: rgb(110, 109, 109);
+  font-weight: bold;
 }
 
-.taskDays{
-    font-size: 0.375rem;
-    font-weight:bold;
-    color: lightgray;
-    margin-top: 0.15rem;
-    
+.taskDays {
+  font-size: 0.375rem;
+  font-weight: bold;
+  color: lightgray;
+  margin-top: 0.15rem;
 }
 
-.taskDescription{
-    font-size: 8px;
-    font-weight:normal;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    letter-spacing: 0.05rem;
-    margin-top: 0.15rem;
-    color: darkgray
+.taskDescription,
+.loading {
+  font-size: 8px;
+  font-weight: normal;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  letter-spacing: 0.05rem;
+  margin-top: 0.15rem;
+  color: darkgray;
 }
-
 
 @media (max-width: 450px) {
+  * {
+    font-size: 32px;
+  }
 
-    *{
-        font-size: 32px;
-    
-    }
+  .showTasks {
+    flex-direction: column;
+    width: 80%;
+  }
 
-    .showTasks{      
-        flex-direction: column;
-        width: 80%;
-    }
+  .tasks {
+    width: 100%;
+  }
 
-    .tasks{
-        width: 100%;
-    }
+  .tasks:hover {
+    transform: scale(1);
+  }
 
-    .tasks:hover{
-        transform: scale(1)
-        
-    }
-    
-    .titleToDo{
-        background: linear-gradient( #041562, #4f73a5);       
-    }
+  .titleToDo {
+    background: linear-gradient(#041562, #4f73a5);
+  }
 
-    .titleDone{
-        background: linear-gradient(  #4f73a5, #041562);       
-    }
-
+  .titleDone {
+    background: linear-gradient(#4f73a5, #041562);
+  }
 }
