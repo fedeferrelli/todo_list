@@ -15,44 +15,45 @@
 .tasks {
   margin-top: 0.55rem;
   width: 30%;
-  box-shadow: darkgray 0px 0px 10px;
+  /* box-shadow: darkgray 0px 0px 10px; */
   border-radius: 0.25rem;
   background-color: #fff;
   transition-duration: 400ms;
   position: relative;
 }
 
-.tasks-number-conteiner{
-    position: absolute;
-    top: calc(-1.3rem/2);
-    left: calc(50% - 1.3rem/2);
-    width: 1.3rem;
-    height: 1.3rem;
-    border-radius: 100%;
-    background: linear-gradient(45deg, #041562, #4f73a5);
-    display: flex;
-    box-shadow: darkgray 0px 0px 3px;
-    justify-content: center;
+.tasks-number-conteiner {
+  position: absolute;
+  top: calc(-1.3rem / 2);
+  left: calc(50% - 1.3rem / 2);
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 100%;
+  /*  background: linear-gradient(45deg, #041562, #4f73a5); */
+  display: flex;
+  box-shadow: darkgray 0px 0px 3px;
+  justify-content: center;
+  background-color: #470d21;
 }
 
-.tasks-number{
-    font-size: calc(1.3rem/2.5);
-    margin: auto;
-    text-align: center;
-    color: white;
-    font-weight: bold;
+.tasks-number {
+  font-size: calc(1.3rem / 2.5);
+  margin: auto;
+  text-align: center;
+  color: white;
+  font-weight: bold;
 }
 
 .tasks:hover {
-  transform: scale(1.02);
+  transform: scale(1.005);
 
-  box-shadow: darkgray 0px 0px 1.25rem;
+  box-shadow: darkgray 0px 0px 0.5rem;
 }
 
 .titleToDo,
 .titleProgress,
 .titleDone {
-  background: linear-gradient(45deg, #041562, #4f73a5);
+  /* background: linear-gradient(45deg, #041562, #4f73a5); */
   font-size: 0.75rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -62,18 +63,21 @@
   margin: 0;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
+
+  background-color: #dd4a48;
 }
 
 .titleProgress {
   background: #3062a7;
+  background-color: #d67d3e;
 }
 
 .titleDone {
-  background: linear-gradient(45deg, #4f73a5, #041562);
+  /* background: linear-gradient(45deg, #4f73a5, #041562); */
+  background-color: #9c0f48;
 }
 
 .container {
-  
   padding: 0.25rem;
 }
 
@@ -118,6 +122,70 @@
   color: darkgray;
 }
 
+.delete-change {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.delete {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  padding: 0;
+  border-radius: 50%;
+  border: solid 0.1px lightgrey;
+  outline: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  display: flex;
+  background-color: transparent;
+}
+
+.delete:hover {
+ 
+  background-color: lightgrey;
+  transition-duration: 500ms;
+}
+
+.delete-icon {
+  width: 0.5rem;
+  height: 0.5rem;
+  /* color: rgb(228, 95, 95); */
+  color: grey;
+  margin: auto;
+}
+
+.delete-icon:hover {
+  color: rgb(49, 47, 47);
+
+  transition-duration: 500ms;
+}
+
+.change-estadio-container {
+  display: flex;
+  /* height: 0.75rem; */
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  margin-left: 0.25rem;
+}
+
+.change-estadio {
+  text-decoration: none;
+  font-size: 0.4rem;
+  color: grey;
+  background-color: rgba(240, 89, 207, 0.25);
+  cursor: pointer;
+  border: solid 0.1px lightgrey;
+  background-color: transparent;
+}
+
+.change-estadio:hover {
+  transition-duration: 500ms;
+  background: lightgrey;
+  color: rgb(49, 47, 47);
+}
+
 @media (max-width: 450px) {
   * {
     font-size: 32px;
@@ -130,18 +198,10 @@
 
   .tasks {
     width: 100%;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
   }
 
   .tasks:hover {
     transform: scale(1);
-  }
-
-  .titleToDo {
-    background: linear-gradient(#041562, #4f73a5);
-  }
-
-  .titleDone {
-    background: linear-gradient(#4f73a5, #041562);
   }
 }

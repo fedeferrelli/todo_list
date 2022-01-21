@@ -1,9 +1,9 @@
 .search-and-add {
   display: flex;
   flex-direction: row;
-  justify-content:left;
+  justify-content: left;
   align-items: center;
-  margin-top: 1rem;
+  padding-top: 1rem;
   margin-right: auto;
   margin-left: auto;
   width: 70%;
@@ -33,15 +33,24 @@
 
 .add-button {
   width: auto;
-  background-color: #4f73a5;
+  background-color: #470d21;
+  background-color: rgb(223, 221, 221);
+  color: rgb(61, 59, 59);
   padding-right: 6px;
-  color: #fff;
+  /* color: #fff;
+  color:#F9E4D4; */
   margin-right: 0px;
+  font-style: normal;
+  font-weight: bold;
+  border: none;
+  transition: ease-in 300ms;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 .add-button:hover {
-  transform: scale(1.02);
-  background-color: #041562;
+  color: rgb(223, 221, 221);
+  background-color: rgb(139, 136, 136);
 }
 
 @media (max-width: 450px) {
@@ -49,13 +58,17 @@
     font-size: 32px;
   }
 
+  .search-and-add{
+    width: 80%;
+    justify-content: space-between;
+  } 
   .search {
-    width: 30%;
+    width: 50%;
     font-size: 0.4rem;
   }
 
-  .add-button{
-    width: 40%;
+  .add-button {
+    width: 50%;
     font-size: 0.4rem;
   }
 }

@@ -14,7 +14,7 @@ const CargaDatos = ({trigger, setTrigger, setShowForm}) =>{
     
     const [tarea, setTarea] = useState('');
     const [descripcion, setDescripcion] = useState('');
-    const [estadio, setEstadio] = useState('toDo')
+    const [estadio, setEstadio] = useState('para hacer')
 
 
     // Función para cargar datos 
@@ -40,7 +40,7 @@ const CargaDatos = ({trigger, setTrigger, setShowForm}) =>{
           
           setTarea('');
           setDescripcion('');
-          setEstadio('toDo')
+          setEstadio('para hacer')
           setShowForm(false)
       
       }
@@ -99,7 +99,7 @@ const CargaDatos = ({trigger, setTrigger, setShowForm}) =>{
                    className="radio-button"
                    name="estadio"
                    type="radio"
-                   value="toDo"
+                   value="para hacer"
                    defaultChecked
                    onChange={(e) => setEstadio(e.target.value)}
                  />

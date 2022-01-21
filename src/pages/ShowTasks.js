@@ -5,7 +5,7 @@ import SearchAndAdd from './Search&Add'
 
 import '../css/Tasks.css'
 
-const ShowTasks = ({data, setShowForm}) =>{
+const ShowTasks = ({data, setShowForm, setTrigger, trigger}) =>{
 
     const [search, setSearch] = useState('')
 
@@ -17,7 +17,7 @@ useEffect(() => {
 
     const dataOk = data.filter(item => ( item.tarea.toLowerCase().includes(search.toLowerCase()) ||  item.descripcion.toLowerCase().includes(search.toLowerCase()) ))
     
-    setToDoData(dataOk.filter(task => task.estadio==='toDo'))
+    setToDoData(dataOk.filter(task => task.estadio==='para hacer'))
     setProgressData(dataOk.filter(task => task.estadio==='progreso'))
     setDoneData(dataOk.filter(task => task.estadio==='hecho'))
 
@@ -40,17 +40,23 @@ useEffect(() => {
     <div className='showTasks'> 
         <Tasks 
         data={toDoData}
-        title='Things To Do' 
+        title='Things To Do'
+        trigger = {trigger}
+        setTrigger = {setTrigger} 
         />
     
         <Tasks 
         data={progressData}
         title='Things In Progress'
+        trigger = {trigger}
+        setTrigger = {setTrigger}
          />
     
         <Tasks 
         data={doneData}
         title='Things Already Done'
+        trigger = {trigger}
+        setTrigger = {setTrigger}
          />
     
     </div>
