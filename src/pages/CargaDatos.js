@@ -51,9 +51,9 @@ const CargaDatos = ({trigger, setTrigger, setShowForm}) =>{
 
  return (
    <div className="form">
-     {/* <div className="header"> */}
+    
      <h1 className="titulo"> Agregar Nueva Tarea </h1>
-     {/*  </div> */}
+    
 
      <div className="bloque">
        <form onSubmit={setData} className="form-body">
@@ -67,7 +67,6 @@ const CargaDatos = ({trigger, setTrigger, setShowForm}) =>{
                className="form-input"
                id="tarea"
                type="text"
-               // placeholder="Nueva Tarea"
                value={tarea}
                onChange={(e) => setTarea(e.target.value)}
                rows="1"
@@ -83,7 +82,6 @@ const CargaDatos = ({trigger, setTrigger, setShowForm}) =>{
                className="form-input"
                id="descripcion"
                type="text"
-               // placeholder="Descripcion"
                value={descripcion}
                onChange={(e) => setDescripcion(e.target.value)}
                rows="2"

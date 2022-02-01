@@ -21,6 +21,7 @@ useEffect(() => {
     setProgressData(dataOk.filter(task => task.estadio==='progreso'))
     setDoneData(dataOk.filter(task => task.estadio==='hecho'))
 
+
 }, [data, search])
 
     

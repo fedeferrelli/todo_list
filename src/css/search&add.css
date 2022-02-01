@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: left;
   align-items: center;
-  padding-top: 1rem;
+  padding-top: 2rem;
   margin-right: auto;
   margin-left: auto;
   width: 70%;
@@ -12,23 +12,23 @@
 .search,
 .add-button {
   box-sizing: border-box;
-  padding: 3px;
-  padding-left: 6px;
-  font-size: 8px;
+  padding: 0.5rem;
+  padding-left: 1.5rem;
+  font-size: 1rem;
   color: #041562;
   font-style: italic;
   width: auto;
   border: solid lightgrey 0.1px;
-  border-radius: 50px;
+  border-radius: 6rem;
   outline: none;
-  margin-right: 10px;
+  margin-right: 1.5rem;
   transition: ease-in 400ms;
 }
 
 .search:focus {
   flex-grow: 1;
   background-color: rgb(246, 249, 250);
-  border: solid #4f73a5 0.1px;
+  border: solid #4f73a5 0.01rem;
 }
 
 .add-button {
@@ -36,10 +36,9 @@
   background-color: #470d21;
   background-color: rgb(223, 221, 221);
   color: rgb(61, 59, 59);
-  padding-right: 6px;
-  /* color: #fff;
-  color:#F9E4D4; */
-  margin-right: 0px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: 0rem;
   font-style: normal;
   font-weight: bold;
   border: none;
@@ -55,20 +54,27 @@
 
 @media (max-width: 450px) {
   * {
-    font-size: 32px;
+    font-size: 17px;
   }
 
   .search-and-add{
-    width: 80%;
-    justify-content: space-between;
-  } 
-  .search {
-    width: 50%;
-    font-size: 0.4rem;
+    
+      display:flex;
+      flex-direction: column ;
+      justify-content: center;
+      align-items: center;
+      
+      margin-right: auto;
+      margin-left: auto;
+      width: 80%;
   }
 
-  .add-button {
-    width: 50%;
-    font-size: 0.4rem;
+  .search, .add-button {
+    width: 100%;
+    font-size: 0.9rem;
+    margin-right: auto;
+      margin-left: auto;
+      margin-bottom: 1.5rem;
   }
+
 }

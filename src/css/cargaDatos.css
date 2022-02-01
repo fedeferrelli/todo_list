@@ -1,50 +1,46 @@
 .form {
-  margin-top: 2rem;
+  margin-top: 4rem;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
-  max-width: 10rem;
-  box-shadow: darkgray 0px 0px 5px;
-  border-radius: 0.25rem;
+  width: 40%;
+  max-width: 25rem;
+  box-shadow: darkgray 0 0 0.75rem;
+  border-radius: 0.5rem;
   background-color: #fff;
 
-  padding-bottom: 0.7rem;
+  padding-bottom: 1.5rem;
 }
 
 .titulo {
   background: linear-gradient(45deg, #dd4a48, #9c0f48);
-  font-size: 0.75rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   vertical-align: middle;
   text-align: center;
   color: #fff;
   margin: 0;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 
 .bloque {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-/* .form-body{
-    border-bottom: solid 0.025rem lightblue;
-    margin-bottom: 0.5rem;
-} */
 
 .form-label {
   margin: 0%;
   text-transform: capitalize;
-  font-size: 0.5rem;
+  font-size: 1.2rem;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: rgb(110, 109, 109);
   font-weight: lighter;
 }
 
 .form-input {
-  font-size: 0.5rem;
+  font-size: 1.2rem;
   font-weight: normal;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -57,8 +53,8 @@
 }
 
 .form-input:focus {
-  border: solid 0.5px transparent;
-  border-bottom: solid 0.5px #4f73a5;
+  border: solid 0.075rem transparent;
+  border-bottom: solid 0.075rem #4f73a5;
 }
 
 .estadio {
@@ -66,38 +62,38 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  height: 1rem;
+  height: 2rem;
 }
 
 .radio-button {
-  width: 0.5rem;
+  width: 1rem;
   margin: auto;
 }
 
 .form-radio-button {
   display: flex;
-  margin-right: 0.2rem;
+  margin-right: 0.4rem;
 }
 
 .botonera {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 0.7rem;
+  margin-top: 1.5rem;
 }
 
 .submit,
 .cancelar {
   width: 55%;
-  font-size: 0.4rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   color: #fff;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   border: none;
-  padding-top: 0.35rem;
-  padding-bottom: 0.35rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
   font-weight: bold;
-  background-color: #519259 /* , #4f73a5 */;
+  background-color: #519259 ;
   transition: ease-in-out 200ms;
   cursor:pointer;
 }
@@ -118,7 +114,7 @@
 
 @media (max-width: 450px) {
     * {
-      font-size: 32px;
+      font-size: 17px;
     }
   
     .form {
@@ -128,6 +124,6 @@
 
     .submit,
 .cancelar {
-  font-size: 0.4rem;
+  font-size: 0.75rem;
     }
 }
