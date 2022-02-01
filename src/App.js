@@ -3,9 +3,9 @@ import db from "./firebase/config";
 
 import { collection, getDocs } from "firebase/firestore";
 
-import CargaDatos from "../src/pages/CargaDatos";
+import CargaDatos from "./components/CargaDatos";
 
-import ShowTasks from "./pages/ShowTasks";
+import ShowTasks from "./components/ShowTasks";
 
 
 
@@ -15,6 +15,7 @@ function App() {
   const [trigger, setTrigger] = useState(false);
 
   const [showForm, setShowForm] = useState(false);
+
 
   useEffect(() => {
     const getData = async () => {

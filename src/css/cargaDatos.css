@@ -27,6 +27,7 @@
 .bloque {
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-top: 1rem;
 }
 
 
@@ -120,10 +121,17 @@
     .form {
       flex-direction: column;
       width: 80%;
+      margin-top: 1rem; 
+    }
+
+    .form-label {
+          
+      font-weight: bold;
+
     }
 
     .submit,
-.cancelar {
-  font-size: 0.75rem;
+  .cancelar {
+      font-size: 0.75rem;
     }
 }
