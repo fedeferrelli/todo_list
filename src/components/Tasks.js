@@ -11,7 +11,7 @@ const Tasks = ({data, title, trigger, setTrigger}) =>{
 
      const deleteTask = (id, tarea) => {
         
-        console.log(trigger)
+       
         if(window.confirm(`¿estás seguro que queres elminar ${tarea.toUpperCase()}?`) )
 
         
@@ -19,8 +19,7 @@ const Tasks = ({data, title, trigger, setTrigger}) =>{
         { try {
             deleteDoc(doc(db, "tareas", id));
             setTrigger(!trigger)
-            console.log(trigger)
-            console.log('ya borró')
+           
          } catch (error) {
              console.log(error)    
          }} 
@@ -36,16 +35,11 @@ const Tasks = ({data, title, trigger, setTrigger}) =>{
               });
               
             setTrigger(!trigger)
-            console.log(trigger)
-            console.log('ya modificó')
+
          } catch (error) {
              console.log(error)    
          }} 
     } 
-
-
-    
-    
 
 
 
