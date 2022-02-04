@@ -28,6 +28,8 @@
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 1rem;
+
+  
 }
 
 
@@ -38,6 +40,7 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: rgb(110, 109, 109);
   font-weight: lighter;
+
 }
 
 .form-input {

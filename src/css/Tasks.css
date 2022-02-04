@@ -14,7 +14,7 @@
   width: 30%;
   border-radius: 0.5rem;
   background-color: #fff;
-  transition-duration: 400ms;
+  transition-duration: 200ms;
   position: relative;
 }
 
@@ -28,7 +28,7 @@
   display: flex;
   box-shadow: darkgray 0px 0px 0.4px;
   justify-content: center;
-  background-color: #470d21;
+  background-color: #641b35;
 }
 
 .tasks-number {
@@ -40,7 +40,7 @@
 }
 
 .tasks:hover {
-  transform: scale(1.005);
+  transform: translateY(-0.25rem);
   box-shadow: darkgray 0px 0px 1rem;
 }
 
@@ -80,7 +80,7 @@
 .task:hover {
   border-bottom: solid 0.005rem rgba(240, 89, 207, 1);
   background: rgba(240, 89, 207, 0.25);
-  transition-duration: 1000ms;
+  transition-duration: 400ms;
 }
 
 .taskTitle,

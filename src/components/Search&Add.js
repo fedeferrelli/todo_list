@@ -1,8 +1,10 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import '../css/search&add.css'
 
-const Search = ({setSearch, setShowForm}) =>{
+const Search = ({setSearch}) =>{
 
 
     const onChange = (e) =>{
@@ -10,9 +12,7 @@ const Search = ({setSearch, setShowForm}) =>{
         setSearch(e.target.value)
     }
 
-    const showForm = () =>{
-        setShowForm(true)
-    }
+ 
 
     return(
 
@@ -24,9 +24,9 @@ const Search = ({setSearch, setShowForm}) =>{
         onChange={e=>onChange(e)}
         />
 
-        <button className='add-button'
-        onClick={showForm}
-        >Agregar Tarea</button>
+        <Link to="/cargarDatos" className='add-button'
+        
+        >Agregar Tarea</Link>
 
         </div>
     )

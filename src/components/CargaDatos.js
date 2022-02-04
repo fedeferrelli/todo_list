@@ -1,157 +1,142 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 
-import db from '../firebase/config'
+import db from "../firebase/config";
+
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import { collection, addDoc } from "firebase/firestore";
 
 import "../css/cargaDatos.css";
 
+const CargaDatos = ({ trigger, setTrigger, setShowForm }) => {
+  // States para los datos
 
+  const [tarea, setTarea] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [estadio, setEstadio] = useState("para hacer");
 
-const CargaDatos = ({trigger, setTrigger, setShowForm}) =>{
+  const navigate = useNavigate();
 
-    // States para los datos
-    
-    const [tarea, setTarea] = useState('');
-    const [descripcion, setDescripcion] = useState('');
-    const [estadio, setEstadio] = useState('para hacer')
+  // Función para cargar datos
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    // Función para cargar datos 
+    try {
+      await addDoc(collection(db, "tareas"), {
+        tarea: tarea,
+        descripcion: descripcion,
+        estadio: estadio,
+        fecha: Date(),
+      });
 
-    const setData = async (event) => {
+      setTrigger(!trigger);
+    } catch (e) {
+      console.error("Ocurrió un error al cargar la tarea: ", e);
+    }
 
-        event.preventDefault()
+    setTarea("");
+    setDescripcion("");
+    setEstadio("para hacer");
+    setShowForm(false);
 
-          try {
-            await addDoc(collection(db, "tareas"), {
-                tarea: tarea,
-                descripcion: descripcion,
-                estadio: estadio, 
-                fecha: Date()
-            });
+    navigate("/tasks");
+  };
 
-            setTrigger(!trigger)
-            
-           
-          } catch (e) {
-            console.error("Ocurrió un error al cargar la tarea: ", e);
-          }
-          
-          setTarea('');
-          setDescripcion('');
-          setEstadio('para hacer')
-          setShowForm(false)
-      
-      }
+  return (
+    <div className="form">
+      <h1 className="titulo"> Agregar Nueva Tarea </h1>
 
-      const cancelAndBack = () =>{
-        setShowForm(false)
-      }
+      <div className="bloque">
+        <form onSubmit={handleSubmit} className="form-body">
+          <div className="bloque-big-screen">
+            <div className="form-bloque">
+              <label className="form-label" htmlFor="tarea">
+                Tarea
+              </label>
 
- return (
-   <div className="form">
-    
-     <h1 className="titulo"> Agregar Nueva Tarea </h1>
-    
+              <textarea
+                className="form-input"
+                id="tarea"
+                type="text"
+                value={tarea}
+                onChange={(e) => setTarea(e.target.value)}
+                rows="1"
+              />
+            </div>
 
-     <div className="bloque">
-       <form onSubmit={setData} className="form-body">
-         <div className="bloque-big-screen">
-           <div className="form-bloque">
-             <label className="form-label" htmlFor="tarea">
-               Tarea
-             </label>
+            <div className="form-bloque">
+              <label className="form-label" htmlFor="descripcion">
+                Descripción
+              </label>
 
-             <textarea
-               className="form-input"
-               id="tarea"
-               type="text"
-               value={tarea}
-               onChange={(e) => setTarea(e.target.value)}
-               rows="1"
-             />
-           </div>
+              <textarea
+                className="form-input"
+                id="descripcion"
+                type="text"
+                value={descripcion}
+                onChange={(e) => setDescripcion(e.target.value)}
+                rows="2"
+              />
+            </div>
+          </div>
 
-           <div className="form-bloque">
-             <label className="form-label" htmlFor="descripcion">
-               Descripción
-             </label>
+          <div className="bloque-big-screen">
+            <div className="form-bloque">
+              <label className="estadio">
+                <div className="form-radio-button">
+                  <input
+                    className="radio-button"
+                    name="estadio"
+                    type="radio"
+                    value="para hacer"
+                    defaultChecked
+                    onChange={(e) => setEstadio(e.target.value)}
+                  />
+                </div>
 
-             <textarea
-               className="form-input"
-               id="descripcion"
-               type="text"
-               value={descripcion}
-               onChange={(e) => setDescripcion(e.target.value)}
-               rows="2"
-             />
-           </div>
-         </div>
+                <span className="form-label">Para hacer</span>
+              </label>
 
-         <div className="bloque-big-screen">
-           <div className="form-bloque">
-             <label className="estadio">
-               <div className="form-radio-button">
-                 <input
-                   className="radio-button"
-                   name="estadio"
-                   type="radio"
-                   value="para hacer"
-                   defaultChecked
-                   onChange={(e) => setEstadio(e.target.value)}
-                 />
-               </div>
+              <label className="estadio">
+                <div className="form-radio-button">
+                  <input
+                    className="radio-button"
+                    name="estadio"
+                    type="radio"
+                    value="progreso"
+                    onChange={(e) => setEstadio(e.target.value)}
+                  />
+                </div>
+                <span className="form-label">En Progreso</span>
+              </label>
 
-               <span className="form-label">Para hacer</span>
-             </label>
+              <label className="estadio">
+                <div className="form-radio-button">
+                  <input
+                    className="radio-button"
+                    name="estadio"
+                    type="radio"
+                    value="hecho"
+                    onChange={(e) => setEstadio(e.target.value)}
+                  />
+                </div>
+                <span className="form-label form-label-boton">Terminado</span>
+              </label>
+            </div>
 
-             <label className="estadio">
-               <div className="form-radio-button">
-                 <input
-                   className="radio-button"
-                   name="estadio"
-                   type="radio"
-                   value="progreso"
-                   onChange={(e) => setEstadio(e.target.value)}
-                 />
-               </div>
-               <span className="form-label">En Progreso</span>
-             </label>
+            <div className="botonera">
+              <input className="submit" type="submit" value="agregar tarea" />
 
-             <label className="estadio">
-               <div className="form-radio-button">
-                 <input
-                   className="radio-button"
-                   name="estadio"
-                   type="radio"
-                   value="hecho"
-                   onChange={(e) => setEstadio(e.target.value)}
-                 />
-               </div>
-               <span className="form-label form-label-boton">Terminado</span>
-             </label>
-           </div>
-
-           <div className='botonera'>
-
-                <input
-                    className="submit"
-                    type="submit"
-                    value="agregar tarea"
-                />
-
-                <button className="cancelar" onClick={cancelAndBack}>       
-                    cancelar
-                </button>
-
-           </div>
-         </div>
-       </form>
-     </div>
-   </div>
- );   
-
+              <Link to="/tasks" className="cancelar">
+                cancelar
+              </Link>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default CargaDatos;

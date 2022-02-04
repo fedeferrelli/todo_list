@@ -1,0 +1,176 @@
+
+.submit-login{
+    width: 100%;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 1rem;
+    border: none;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    font-weight: bold;
+    background-color: #519259 ;
+    transition: ease-in-out 200ms;
+    cursor:pointer;   
+}
+
+
+.login-register{
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+
+}
+
+.login-password{
+    width:40%;
+    max-width: 25rem;
+    text-align: center;
+    flex-direction: column;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+   color: white; 
+   
+    margin-right: auto;
+    
+
+}
+
+.password-icon{
+    margin-bottom: -0.2rem;
+    margin-top: auto;
+    margin-left: 0.5rem;
+    display: inline-block;
+    
+    font-size: 1.2rem;
+    
+    color: rgb(110, 109, 109);
+    font-weight: lighter;
+}
+
+.to-register{
+    margin-left: 0.5rem;  
+}
+
+.to-password{
+    color: white   
+}
+
+
+.show-error{
+    width: 40%;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 25rem;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+   
+    
+    background-color: rgb(206, 129, 129);
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-left: red 0.25rem solid;
+}
+
+.error-titulo{
+    font-size: 1.1rem;
+    color: rgb(136, 2, 2);
+    font-weight: bold;
+}
+
+.error-mensaje{
+    font-size: 1rem;
+    color: rgb(136, 2, 2);
+    margin-top: 0;
+}
+
+.show-succes{
+    width: 40%;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 25rem;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+   
+    
+    background-color: rgb(147, 206, 129);
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-left: green 0.25rem solid;
+}
+
+.succes-titulo{
+    font-size: 1.1rem;
+    color: rgb(36, 75, 20);
+    font-weight: bold;
+}
+
+.succes-mensaje{
+    font-size: 1rem;
+    color: rgb(36, 75, 20);;
+    margin-top: 0;
+}
+
+.botonera-google{
+
+    width: 40%;
+    max-width: 25rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.google-login{
+   width: 100%;
+   
+    padding: 1rem;
+    background-color: white;
+    border-radius: 10rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+   
+
+}
+
+.google-login:hover{
+    
+    transition: 500ms;
+    background: linear-gradient(45deg, #dd4a48, #9c0f48);  
+    color: white;
+ }
+
+
+
+@media (max-width: 450px) {
+    * {
+      font-size: 17px;
+    }
+  
+    .show-error{
+        width: 80%;
+    }
+
+    .login-password{
+        width:80%;
+    }
+
+    .login-register{
+        font-size: 1rem;   
+    }
+}
