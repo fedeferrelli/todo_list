@@ -7,6 +7,7 @@
   margin: auto;
   margin-bottom: 3rem;
   padding-top: 1rem;
+
 }
 
 .tasks {
@@ -40,7 +41,7 @@
 }
 
 .tasks:hover {
-  transform: translateY(-0.25rem);
+  transform: translateY(-0.1rem);
   box-shadow: darkgray 0px 0px 1rem;
 }
 
@@ -173,6 +174,32 @@
   transition-duration: 500ms;
   background: lightgrey;
   color: rgb(49, 47, 47);
+}
+
+.log-out{
+  width: auto;
+  padding: 0.5rem;
+  background-color: rgb(223, 221, 221);
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: rgb(61, 59, 59);
+  padding-right: 1rem;
+  padding-left: 1rem;
+  font-weight: bold;
+  border-radius: 6rem;
+  outline: none;
+  transition: ease-in 300ms;
+  cursor: pointer;
+
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 7.5rem;
+
+}
+
+.log-out:hover {
+  color: rgb(223, 221, 221);
+  background-color: rgb(204, 78, 78);
 }
 
 @media (max-width: 450px) {

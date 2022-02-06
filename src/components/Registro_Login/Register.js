@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { auth } from '../../firebase/config';
+
+import { context } from '../../AuthContext/AuthContext'
 
 import {FiEyeOff, FiEye} from 'react-icons/fi';
 
@@ -16,6 +19,9 @@ function Register() {
     const [message, setMessage] = useState('');
 
     const navigate = useNavigate();
+
+    const {name, apellido, handleRegister} = useContext(context)
+     
 
     const SettingEmail = (e) =>{
         setEmail(e)
@@ -44,8 +50,11 @@ function Register() {
         else if (password != repeatPassword){
           setMessage("Las contraseñas ingresadas no son idénticas")
       }
-
-      navigate("/tasks")
+      else{
+        handleRegister(auth, email, password)
+        navigate("/tasks")
+      }
+      
     }
 
 
@@ -103,7 +112,7 @@ function Register() {
 
              <input
                className="form-input"
-               id="password"
+               id="repeat-password"
                type= {showPassword ? 'text' :  "password"}   
               
               onChange={(e) => SettingRepeatPassword(e.target.value)}

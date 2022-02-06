@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { context } from "../AuthContext/AuthContext";
 
-import db from "../firebase/config";
+import {db} from "../firebase/config";
 
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { collection, addDoc } from "firebase/firestore";
 
@@ -15,6 +16,8 @@ const CargaDatos = ({ trigger, setTrigger, setShowForm }) => {
   const [descripcion, setDescripcion] = useState("");
   const [estadio, setEstadio] = useState("para hacer");
 
+  const {uid} = useContext(context)
+
   const navigate = useNavigate();
 
   // Función para cargar datos
@@ -23,7 +26,7 @@ const CargaDatos = ({ trigger, setTrigger, setShowForm }) => {
     event.preventDefault();
 
     try {
-      await addDoc(collection(db, "tareas"), {
+      await addDoc(collection(db, uid), {
         tarea: tarea,
         descripcion: descripcion,
         estadio: estadio,
@@ -38,8 +41,7 @@ const CargaDatos = ({ trigger, setTrigger, setShowForm }) => {
     setTarea("");
     setDescripcion("");
     setEstadio("para hacer");
-    setShowForm(false);
-
+   
     navigate("/tasks");
   };
 

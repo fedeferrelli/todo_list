@@ -1,3 +1,57 @@
+.screen{
+    width: 100%;
+   
+
+    display: flex;
+
+    flex-direction: row;
+
+
+}
+
+.titulo-home{
+    color: white;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 0;
+    text-align: center;
+  /*   background-color: #641b35; */
+
+}
+
+.imagen-left{
+    width: 50%;
+   /*  background-color: cyan; */
+    display: flex;
+    flex-grow: 0;
+
+
+   /*  background-color: #dd4a48; */
+
+
+    
+
+}
+
+.imagen{
+    width:70%;
+    margin: auto;
+   /*  margin-top: 2rem; */
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    
+  /*   background-color: #d67d3e; */
+    
+}
+.text-form{
+    width: 50%;
+    margin: auto;
+
+    
+}
 
 .submit-login{
     width: 100%;
@@ -11,7 +65,9 @@
     font-weight: bold;
     background-color: #519259 ;
     transition: ease-in-out 200ms;
-    cursor:pointer;   
+    cursor:pointer; 
+
+    
 }
 
 
@@ -24,12 +80,13 @@
     justify-content: center;
     font-size: 1.2rem;
     margin-top: 1rem;
+   
 
 }
 
 .login-password{
-    width:40%;
-    max-width: 25rem;
+    width:100%;
+    /* max-width: 25rem; */
     text-align: center;
     flex-direction: column;
     margin-left: auto;
@@ -80,6 +137,8 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     border-left: red 0.25rem solid;
+
+   
 }
 
 .error-titulo{
@@ -160,6 +219,11 @@
 @media (max-width: 450px) {
     * {
       font-size: 17px;
+    }
+
+    .screen{
+        flex-direction: column;
+    
     }
   
     .show-error{

@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from "react";
-import db from "./firebase/config";
-
-import { collection, getDocs } from "firebase/firestore";
+import React, { useState, useEffect, useContext } from "react";
 
 import CargaDatos from "./components/CargaDatos";
 
@@ -12,6 +9,8 @@ import Login from "./components/Registro_Login/Login";
 import Register from "./components/Registro_Login/Register"
 import RecuperarPassword from "./components/Registro_Login/RecuperarPassword";
 
+import { AuthProvider } from './AuthContext/AuthContext'
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
@@ -21,13 +20,18 @@ function App() {
 
   const [trigger, setTrigger] = useState(false);
 
-  const [showForm, setShowForm] = useState(false);
+
+ 
+  
+
+  
 
 
 
-useEffect(() => {
+/* useEffect(() => {
+
     const getData = async () => {
-      const querySnapshot = await getDocs(collection(db, "tareas"));
+      const querySnapshot = await getDocs(collection(db,'hoXsjCEGg7QJ2bVAfJaxlW8mJAw2'));
 
       const datos = [];
 
@@ -37,13 +41,17 @@ useEffect(() => {
         datos.push(tareas);
       });
 
-      setData(datos);
+       setData(datos);
     };
 
-    getData();
-  }, [trigger]);
+      getData();
+  }, [trigger]); */
+
+
 
   return (
+
+    <AuthProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" index element={<Register />}></Route>
@@ -59,8 +67,7 @@ useEffect(() => {
           path="/tasks"
           element={
             <ShowTasks
-              data={data}
-              setShowForm={setShowForm}
+             
               trigger={trigger}
               setTrigger={setTrigger}
             />
@@ -73,12 +80,12 @@ useEffect(() => {
             <CargaDatos
               setTrigger={setTrigger}
               trigger={trigger}
-              setShowForm={setShowForm}
             />
           }
         ></Route>
       </Routes>
     </BrowserRouter>
+    </AuthProvider>
   );
   }
 

@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { auth } from "../../firebase/config";
+
+import { context } from "../../AuthContext/AuthContext";
 
 import { FiEyeOff, FiEye } from "react-icons/fi";
 
@@ -12,6 +16,8 @@ function RecuperarPassword() {
   const [message, setMessage] = useState("");
 
   const [succesMessage, setSuccesMessage] = useState("");
+
+  const { passwordReset } = useContext(context)
 
   const navigate = useNavigate();
 
@@ -30,8 +36,8 @@ function RecuperarPassword() {
     setSuccesMessage(
       "Te hemos enviado un mail a tu casilla. Recuerda mirar el Spam"
     );
-
-    navigate("/login");
+    passwordReset(auth, email)
+   
   };
 
   return (

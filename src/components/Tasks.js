@@ -1,12 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
+import { context } from "../AuthContext/AuthContext";
+
 import "../css/Tasks.css";
-import db from "../firebase/config";
+
+
+import {db} from "../firebase/config";
 import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 
 import { MdDeleteForever } from 'react-icons/md';
 
 
 const Tasks = ({data, title, trigger, setTrigger}) =>{
+
+
+    const {uid} = useContext(context)
 
 
      const deleteTask = (id, tarea) => {
@@ -17,11 +24,12 @@ const Tasks = ({data, title, trigger, setTrigger}) =>{
         
         
         { try {
-            deleteDoc(doc(db, "tareas", id));
+            deleteDoc(doc(db, uid, id));
             setTrigger(!trigger)
            
          } catch (error) {
-             console.log(error)    
+             console.log(error)  
+             setTrigger(!trigger)  
          }} 
     } 
 
@@ -29,15 +37,17 @@ const Tasks = ({data, title, trigger, setTrigger}) =>{
         if(window.confirm(`¿estás seguro que queres actualizar ${tarea.toUpperCase()} a ${estadioFinal.toUpperCase()}`) )
         
         { try {
-            updateDoc(doc(db, "tareas", id), {
+            updateDoc(doc(db, uid, id), {
 
                 estadio: estadioFinal
               });
               
             setTrigger(!trigger)
+            
 
          } catch (error) {
-             console.log(error)    
+             console.log(error) 
+             setTrigger(!trigger)   
          }} 
     } 
 
