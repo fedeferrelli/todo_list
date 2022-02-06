@@ -4,9 +4,8 @@ import { auth } from "../../firebase/config";
 
 import { context } from "../../AuthContext/AuthContext";
 
-import { FiEyeOff, FiEye } from "react-icons/fi";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 import "../../css/registro_login.css";
 
@@ -19,7 +18,7 @@ function RecuperarPassword() {
 
   const { passwordReset } = useContext(context)
 
-  const navigate = useNavigate();
+ 
 
   const SettingEmail = (e) => {
     setEmail(e);

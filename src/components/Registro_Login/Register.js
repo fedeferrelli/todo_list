@@ -20,7 +20,7 @@ function Register() {
 
     const navigate = useNavigate();
 
-    const {name, apellido, handleRegister} = useContext(context)
+    const {handleRegister} = useContext(context)
      
 
     const SettingEmail = (e) =>{
@@ -47,7 +47,7 @@ function Register() {
         else if (password.length<6){
             setMessage("La contraseña debe tener al menos 6 caracteres")
         }
-        else if (password != repeatPassword){
+        else if (password !== repeatPassword){
           setMessage("Las contraseñas ingresadas no son idénticas")
       }
       else{

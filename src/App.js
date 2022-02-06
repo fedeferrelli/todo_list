@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState} from "react";
 
 import CargaDatos from "./components/CargaDatos";
 
@@ -16,38 +16,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
 function App() {
-  const [data, setData] = useState([]);
+ 
 
   const [trigger, setTrigger] = useState(false);
-
-
- 
-  
-
-  
-
-
-
-/* useEffect(() => {
-
-    const getData = async () => {
-      const querySnapshot = await getDocs(collection(db,'hoXsjCEGg7QJ2bVAfJaxlW8mJAw2'));
-
-      const datos = [];
-
-      querySnapshot.forEach((doc) => {
-        const tareas = doc.data();
-        tareas.id = doc.id;
-        datos.push(tareas);
-      });
-
-       setData(datos);
-    };
-
-      getData();
-  }, [trigger]); */
-
-
 
   return (
 

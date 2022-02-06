@@ -1,27 +1,23 @@
 import React, {useContext} from "react";
 import { context } from "../AuthContext/AuthContext";
-import { auth } from "../firebase/config";
 
-import { Link, useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 
 import '../css/search&add.css'
 
 const Search = ({setSearch}) =>{
 
-    const navigate = useNavigate();
+
 
     const onChange = (e) =>{
         e.preventDefault()
         setSearch(e.target.value)
     }
 
-    const {user, signOutNow} = useContext(context)
+    const {user} = useContext(context)
 
-    const signOutRightNow = (e) =>{
-        e.preventDefault();
-        signOutNow(auth)
-        navigate('/login')
-    }
+  
 
     
  
