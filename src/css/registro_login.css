@@ -1,13 +1,4 @@
-.screen{
-    width: 100%;
-   
 
-    display: flex;
-
-    flex-direction: row;
-
-
-}
 
 .titulo-home{
     color: white;
@@ -19,18 +10,15 @@
 
 }
 
+.screen{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
 .imagen-left{
     width: 50%;
-   /*  background-color: cyan; */
     display: flex;
-    flex-grow: 0;
-
-
-   /*  background-color: #dd4a48; */
-
-
-    
-
 }
 
 .imagen{
@@ -39,21 +27,95 @@
    /*  margin-top: 2rem; */
 }
 
-.login{
+
+
+
+.text-form-lr{
+    width: 50%;
+    margin: auto;   
+}
+
+
+
+
+.login-register{
     display: flex;
     flex-direction: column;
-    
-  /*   background-color: #d67d3e; */
-    
-}
-.text-form{
-    width: 50%;
-    margin: auto;
-
-    
+    width: 100%;
+   
 }
 
-.submit-login{
+.form-lr{
+margin-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  max-width: 35rem;
+  box-shadow: darkgray 0 0 0.75rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+
+  padding-bottom: 1.5rem;
+   
+}
+
+
+.titulo-lr {
+    background: linear-gradient(45deg, #dd4a48, #9c0f48);
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  .bloque-lr {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;    
+  }
+
+  .form-label-lr {
+    margin: 0%;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: rgb(110, 109, 109);
+    font-weight: lighter;
+  
+  }
+  
+  
+  .form-input-lr {
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    width: 100%;
+    outline: none;
+    box-sizing: border-box;
+    color: rgb(92, 90, 90);
+    border: solid 0.5px rgb(187, 185, 185);
+    transition: ease-in-out 200ms;
+  }
+  
+  .form-input-lr:focus {
+    border: solid 0.075rem transparent;
+    border-bottom: solid 0.075rem #4f73a5;
+  }
+
+  .botonera-lr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+
+.submit-lr{
     width: 100%;
     font-size: 1rem;
     text-transform: uppercase;
@@ -65,13 +127,16 @@
     font-weight: bold;
     background-color: #519259 ;
     transition: ease-in-out 200ms;
-    cursor:pointer; 
-
-    
+    cursor:pointer;    
 }
 
 
-.login-register{
+.submit-lr:hover {
+  background-color: #91C483;
+}
+
+
+.login-register-lr{
     width: 100%;
     color: black;
     display: flex;
@@ -80,11 +145,13 @@
     justify-content: center;
     font-size: 1.2rem;
     margin-top: 1rem;
+
+    text-decoration: none;
    
 
 }
 
-.login-password{
+.login-password-lr{
     width:100%;
     /* max-width: 25rem; */
     text-align: center;
@@ -99,7 +166,7 @@
 
 }
 
-.password-icon{
+.password-icon-lr{
     margin-bottom: -0.2rem;
     margin-top: auto;
     margin-left: 0.5rem;
@@ -111,16 +178,17 @@
     font-weight: lighter;
 }
 
-.to-register{
-    margin-left: 0.5rem;  
+.to-register-login{
+    margin-left: 0.5rem; 
+    color: #9c0f48; 
 }
 
-.to-password{
+.to-password-lr{
     color: white   
 }
 
 
-.show-error{
+.show-error-lr{
     width: 40%;
     flex-direction: column;
     justify-content: space-between;
@@ -141,19 +209,19 @@
    
 }
 
-.error-titulo{
+.error-titulo-lr{
     font-size: 1.1rem;
     color: rgb(136, 2, 2);
     font-weight: bold;
 }
 
-.error-mensaje{
+.error-mensaje-lr{
     font-size: 1rem;
     color: rgb(136, 2, 2);
     margin-top: 0;
 }
 
-.show-succes{
+.show-succes-lr{
     width: 40%;
     flex-direction: column;
     justify-content: space-between;
@@ -172,19 +240,19 @@
     border-left: green 0.25rem solid;
 }
 
-.succes-titulo{
+.succes-titulo-lr{
     font-size: 1.1rem;
     color: rgb(36, 75, 20);
     font-weight: bold;
 }
 
-.succes-mensaje{
+.succes-mensaje-lr{
     font-size: 1rem;
     color: rgb(36, 75, 20);;
     margin-top: 0;
 }
 
-.botonera-google{
+.botonera-google-lr{
 
     width: 40%;
     max-width: 25rem;
@@ -193,7 +261,7 @@
     margin-top: 2rem;
 }
 
-.google-login{
+.google-login-lr{
    width: 100%;
    
     padding: 1rem;
@@ -207,7 +275,7 @@
 
 }
 
-.google-login:hover{
+.google-login-lr:hover{
     
     transition: 500ms;
     background: linear-gradient(45deg, #dd4a48, #9c0f48);  
@@ -226,11 +294,11 @@
     
     }
   
-    .show-error{
+    .show-error-lr{
         width: 80%;
     }
 
-    .login-password{
+    .login-password-lr{
         width:80%;
     }
 

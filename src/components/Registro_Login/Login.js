@@ -64,110 +64,110 @@ function Login() {
   
 
     return (
-<div>
-        <h1 className="titulo-home">Bienvenido a la mejor manera de organizar tus tareas!</h1>
-      <div className="screen">
-        <div className="imagen-left">
-           
-          <img className="imagen" src={Image} alt="tasks" />
-        </div>
+      <div>
+        <h1 className="titulo-home">
+          Bienvenido a la mejor manera de organizar tus tareas!
+        </h1>
+        <div className="screen">
+          <div className="imagen-left">
+            <img className="imagen" src={Image} alt="tasks" />
+          </div>
 
-        <div className="text-form">
-            <div className="login">
+          <div className="text-form-lr">
+            <div className="login-register">
+              <div className="form-lr">
+                <h1 className="titulo-lr"> Iniciar Sesión</h1>
 
-          <div className="form">
-            <h1 className="titulo"> Iniciar Sesión</h1>
+                <div className="bloque-lr">
+                  <form onSubmit={handleSubmit} className="form-body-lr">
+                    <div className="bloque-big-screen-lr">
+                      <div className="form-bloque-lr">
+                        <label className="form-label-lr" htmlFor="email">
+                          Correo Electrónico
+                        </label>
 
-            <div className="bloque">
-              <form onSubmit={handleSubmit} className="form-body">
-                <div className="bloque-big-screen">
-                  <div className="form-bloque">
-                    <label className="form-label" htmlFor="email">
-                      Correo Electrónico
-                    </label>
+                        <input
+                          className="form-input-lr"
+                          id="email"
+                          type="text"
+                          onChange={(e) => SettingEmail(e.target.value)}
+                        />
+                      </div>
 
-                    <input
-                      className="form-input"
-                      id="email"
-                      type="text"
-                      onChange={(e) => SettingEmail(e.target.value)}
-                    />
-                  </div>
+                      <div className="form-bloque-lr">
+                        <label className="form-label-lr" htmlFor="password">
+                          Contraseña
+                        </label>
 
-                  <div className="form-bloque">
-                    <label className="form-label" htmlFor="password">
-                      Contraseña
-                    </label>
+                        {showPassword ? (
+                          <FiEyeOff
+                            className="password-icon-lr"
+                            onClick={(e) => setShowPassword(!showPassword)}
+                          />
+                        ) : (
+                          <FiEye
+                            className="password-icon-lr"
+                            onClick={(e) => setShowPassword(!showPassword)}
+                          />
+                        )}
 
-                    {showPassword ? (
-                      <FiEyeOff
-                        className="password-icon"
-                        onClick={(e) => setShowPassword(!showPassword)}
-                      />
-                    ) : (
-                      <FiEye
-                        className="password-icon"
-                        onClick={(e) => setShowPassword(!showPassword)}
-                      />
-                    )}
+                        <input
+                          className="form-input-lr"
+                          id="password"
+                          type={showPassword ? "text" : "password"}
+                          onChange={(e) => SettingPassword(e.target.value)}
+                        />
+                      </div>
 
-                    <input
-                      className="form-input"
-                      id="password"
-                      type={showPassword ? "text" : "password"}
-                      onChange={(e) => SettingPassword(e.target.value)}
-                    />
-                  </div>
+                      <div className="botonera-lr">
+                        <input
+                          className="submit-lr"
+                          type="submit"
+                          value="Login"
+                        />
+                      </div>
 
-                  <div className="botonera">
-                    <input
-                      className="submit-login"
-                      type="submit"
-                      value="Login"
-                    />
-                  </div>
-
-                  <div className="login-register">
-                    ¿No tenés una cuenta?{" "}
-                    <Link to="/" className="to-register">
-                      {" "}
-                      Registrate{" "}
-                    </Link>{" "}
-                  </div>
+                      <div className="login-register-lr">
+                        ¿No tenés una cuenta?{" "}
+                        <Link to="/register" className="to-register-login">
+                          {" "}
+                          Registrate{" "}
+                        </Link>{" "}
+                      </div>
+                    </div>
+                  </form>
                 </div>
-              </form>
+              </div>
+
+              <div className="login-register-lr login-password-lr">
+                {" "}
+                <Link to="/recuperarPassword" className="to-password">
+                  {" "}
+                  ¿Olvidaste tu contraseña?{" "}
+                </Link>{" "}
+              </div>
+
+              <div>
+                {message && (
+                  <div className="show-error-lr">
+                    <h1 className="error-titulo-lr">Error:</h1>
+
+                    <p className="error-mensaje-lr">{message}</p>
+                  </div>
+                )}
+              </div>
+
+              <div className="botonera-google-lr">
+                <input
+                  className="google-login-lr"
+                  type="submit"
+                  value="Login con Google"
+                  onClick={handleSubmitWithGoogle}
+                />
+              </div>
             </div>
           </div>
-
-          <div className="login-register login-password">
-            {" "}
-            <Link to="/recuperarPassword" className="to-password">
-              {" "}
-              ¿Olvidaste tu contraseña?{" "}
-            </Link>{" "}
-          </div>
-
-          <div>
-            {message && (
-              <div className="show-error">
-                <h1 className="error-titulo">Error:</h1>
-
-                <p className="error-mensaje">{message}</p>
-              </div>
-            )}
-          </div>
-
-          <div className="botonera-google">
-            <input
-              className="google-login"
-              type="submit"
-              value="Login con Google"
-              onClick={handleSubmitWithGoogle}
-            />
-          </div>
-          </div>
         </div>
-      </div>
       </div>
     );
 }

@@ -42,7 +42,7 @@
 
 .tasks:hover {
   transform: translateY(-0.1rem);
-  box-shadow: darkgray 0px 0px 1rem;
+ /*  box-shadow: darkgray 0px 0px 1rem; */
 }
 
 .titleToDo,
@@ -209,7 +209,7 @@
 
   .showTasks {
     flex-direction: column;
-    width: 80%;
+    width: 95%;
   }
 
   .tasks {

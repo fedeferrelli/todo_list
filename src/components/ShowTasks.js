@@ -30,7 +30,7 @@ const ShowTasks = ({setTrigger, trigger}) =>{
     const signOutRightNow = (e) =>{
         e.preventDefault();
         signOutNow(auth)
-        navigate('/login')
+        navigate('/')
     }
 
 useEffect(() => {

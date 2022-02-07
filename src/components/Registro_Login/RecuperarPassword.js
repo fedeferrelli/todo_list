@@ -41,36 +41,36 @@ function RecuperarPassword() {
 
   return (
     <>
-      <div className="form">
-        <h1 className="titulo"> Recuperar Contraseña</h1>
+      <div className="form-lr">
+        <h1 className="titulo-lr"> Recuperar Contraseña</h1>
 
-        <div className="bloque">
-          <form onSubmit={handleSubmit} className="form-body">
-            <div className="bloque-big-screen">
-              <div className="form-bloque">
-                <label className="form-label" htmlFor="email">
+        <div className="bloque-lr">
+          <form onSubmit={handleSubmit} className="form-body-lr">
+            <div className="bloque-big-screen-lr">
+              <div className="form-bloque-lr">
+                <label className="form-label-lr" htmlFor="email">
                   Correo Electrónico
                 </label>
 
                 <input
-                  className="form-input"
+                  className="form-input-lr"
                   id="email"
                   type="text"
                   onChange={(e) => SettingEmail(e.target.value)}
                 />
               </div>
 
-              <div className="botonera">
+              <div className="botonera-lr">
                 <input
-                  className="submit-login"
+                  className="submit-lr"
                   type="submit"
                   value="Recuperar"
                 />
               </div>
 
-              <div className="login-register">
+              <div className="login-register-lr">
                 ¿te acordaste?{" "}
-                <Link to="/login" className="to-register">
+                <Link to="/" className="to-register-lr">
                   {" "}
                   Iniciá Sesión{" "}
                 </Link>{" "}

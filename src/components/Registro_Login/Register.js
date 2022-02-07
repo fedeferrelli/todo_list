@@ -61,20 +61,20 @@ function Register() {
     return (
 
         <>
-        <div className='form'>
-            <h1 className='titulo'> Registro</h1>
+        <div className='form-lr'>
+            <h1 className='titulo-lr'> Registro</h1>
             
-            <div className="bloque">
-       <form onSubmit={handleSubmit} className="form-body">
+            <div className="bloque-lr">
+       <form onSubmit={handleSubmit} className="form-body-lr">
            
-         <div className="bloque-big-screen">
-           <div className="form-bloque">
-             <label className="form-label" htmlFor="email">
+         <div className="bloque-big-screen-lr">
+           <div className="form-bloque-lr">
+             <label className="form-label-lr" htmlFor="email">
                Correo Electrónico
              </label>
 
              <input
-               className="form-input"
+               className="form-input-lr"
                id="email"
                type="text"
               onChange={(e) => SettingEmail(e.target.value)}
@@ -83,17 +83,17 @@ function Register() {
            </div>
 
        
-           <div className="form-bloque">
-             <label className="form-label" htmlFor="password">
+           <div className="form-bloque-lr">
+             <label className="form-label-lr" htmlFor="password">
                Contraseña 
                
              </label>
 
-             {showPassword ? <FiEyeOff className='password-icon' onClick = {(e) => setShowPassword(!showPassword)}/> :
-                <FiEye className='password-icon' onClick = {(e) => setShowPassword(!showPassword)}/>} 
+             {showPassword ? <FiEyeOff className='password-icon-lr' onClick = {(e) => setShowPassword(!showPassword)}/> :
+                <FiEye className='password-icon-lr' onClick = {(e) => setShowPassword(!showPassword)}/>} 
 
              <input
-               className="form-input"
+               className="form-input-lr"
                id="password"
                type= {showPassword ? 'text' :  "password"}   
               
@@ -101,17 +101,17 @@ function Register() {
              />               
            </div>
 
-           <div className="form-bloque">
-             <label className="form-label" htmlFor="password">
+           <div className="form-bloque-lr">
+             <label className="form-label-lr" htmlFor="password">
                Repetir Contraseña 
                
              </label>
 
-             {showPassword ? <FiEyeOff className='password-icon' onClick = {(e) => setShowPassword(!showPassword)}/> :
-                <FiEye className='password-icon' onClick = {(e) => setShowPassword(!showPassword)}/>} 
+             {showPassword ? <FiEyeOff className='password-icon-lr' onClick = {(e) => setShowPassword(!showPassword)}/> :
+                <FiEye className='password-icon-lr' onClick = {(e) => setShowPassword(!showPassword)}/>} 
 
              <input
-               className="form-input"
+               className="form-input-lr"
                id="repeat-password"
                type= {showPassword ? 'text' :  "password"}   
               
@@ -119,16 +119,16 @@ function Register() {
              />               
            </div>
 
-           <div className='botonera'>
+           <div className='botonera-lr'>
 
                 <input
-                    className="submit-login"
+                    className="submit-lr"
                     type="submit"
                     value="Registrarme"
                 />
            </div>
 
-            <div  className="login-register">¿Ya tenés una cuenta? <Link to="/login" className="to-register"> Iniciá Sesión </Link> </div>
+            <div  className="login-register-lr">¿Ya tenés una cuenta? <Link to="/" className="to-register-lr"> Iniciá Sesión </Link> </div>
 
          </div>
        </form>
@@ -142,10 +142,10 @@ function Register() {
 
             { message &&
                 
-                <div className='show-error'> 
-            <h1 className="error-titulo">Error:</h1>
+                <div className='show-error-lr'> 
+            <h1 className="error-titulo-lr">Error:</h1>
 
-            <p className="error-mensaje">{message}</p>
+            <p className="error-mensaje-lr">{message}</p>
 
             
             </div>}

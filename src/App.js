@@ -25,9 +25,11 @@ function App() {
     <AuthProvider>
     <BrowserRouter>
       <Routes>
-        <Route path="/" index element={<Register />}></Route>
+        
 
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/" element={<Login />}></Route>
+
+        <Route path="/register" index element={<Register />}></Route>
 
         <Route
           path="/recuperarPassword"
