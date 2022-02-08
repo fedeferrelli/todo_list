@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { context } from '../AuthContext/AuthContext';
-import { auth } from '../firebase/config';
 import { useNavigate } from 'react-router';
 import {db} from '../firebase/config';
 
@@ -29,7 +28,7 @@ const ShowTasks = ({setTrigger, trigger}) =>{
 
     const signOutRightNow = (e) =>{
         e.preventDefault();
-        signOutNow(auth)
+        signOutNow()
         navigate('/')
     }
 

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 
-import { auth } from "../../firebase/config";
+
 
 import { context } from "../../AuthContext/AuthContext";
 
@@ -27,19 +27,62 @@ function RecuperarPassword() {
     setMessage("");
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+/* const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (email.length < 5) {
-      setMessage("La dirección de correo debe tener al menos 5 caracteres");
+  if (email === "") {
+    setMessage("Debés ingresar correo.");
+    } else {
+    try {
+      await passwordReset(email);
+      setSuccesMessage(
+        "Te enviamos un mail a tu casilla. Recordá mirar el Spam"
+      );
+      console.log(email);
+    } catch (err) {
+      console.log(err.code);
+      if (err.code === "auth/user-not-found") {
+        setMessage(
+          "El correo no corresponde a ninguno de nuestros usuarios."
+        );
+      } else if (err.code === "auth/invalid-email") {
+        setMessage("El correo no es válido.");
+      }
     }
+  }
+}; */
 
-    setSuccesMessage(
-      "Te hemos enviado un mail a tu casilla. Recuerda mirar el Spam"
-    );
-    passwordReset(auth, email)
+console.log(email)
+const handleSubmitPassword = async (e) =>{
+  e.preventDefault();
+  
+  if (email===''){
+    setMessage('Debés ingresar un correo')
+  }
+
+  else{
+    try{
+      await passwordReset(email)
+      setSuccesMessage('Ya enviamos un correo a la casilla que ingresaste. Recordá mirar la carpeta de SPAM')
+      
+    }
+    catch(err){
+
+      console.log(err.code)
+
+      if (err.code === 'auth/invalid-email'){
+        setMessage('No puedes registarte con ese correo porque ya está en uso.')
+      }
+
+      else setMessage('Por favor verificá la dirección de correo ingresada.')
+
+    }
+  }
+
+
+}
    
-  };
+  
 
   return (
     <div>
@@ -51,14 +94,13 @@ function RecuperarPassword() {
           <div className="imagen-left">
             <img className="imagen" src={Image} alt="tasks" />
           </div>
-
           <div className="text-form-lr">
             <div className="login-register">
               <div className="form-lr">
                 <h1 className="titulo-lr"> Recuperar Contraseña</h1>
 
                 <div className="bloque-lr">
-                  <form onSubmit={handleSubmit} className="form-body-lr">
+                  <form onSubmit={handleSubmitPassword} className="form-body-lr">
                     <div className="bloque-big-screen-lr">
                       <div className="form-bloque-lr">
                         <label className="form-label-lr" htmlFor="email">
@@ -68,7 +110,7 @@ function RecuperarPassword() {
                         <input
                           className="form-input-lr"
                           id="email"
-                          type="text"
+                          type="email"
                           onChange={(e) => SettingEmail(e.target.value)}
                         />
                       </div>
@@ -93,24 +135,25 @@ function RecuperarPassword() {
                 </div>
               </div>
             </div>
-          </div>
+          
 
           <div>
             {message && (
-              <div className="show-error">
-                <h1 className="error-titulo">Error:</h1>
+              <div className="show-error-lr">
+                <h1 className="error-titulo-lr">Error:</h1>
 
-                <p className="error-mensaje">{message}</p>
+                <p className="error-mensaje-lr">{message}</p>
               </div>
             )}
 
             {succesMessage && (
-              <div className="show-succes">
-                <h1 className="succes-titulo">Excelente!</h1>
+              <div className="show-succes-lr">
+                <h1 className="succes-titulo-lr">Excelente!</h1>
 
-                <p className="succes-mensaje">{succesMessage}</p>
+                <p className="succes-mensaje-lr">{succesMessage}</p>
               </div>
             )}
+            </div>
           </div>
         </div>
       </div>

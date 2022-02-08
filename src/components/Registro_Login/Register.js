@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { auth } from '../../firebase/config';
+
 
 import { context } from '../../AuthContext/AuthContext'
 
@@ -40,21 +40,41 @@ function Register() {
       setMessage('')
   }
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
 
-        if(email.length < 5){
-            setMessage("La dirección de correo debe tener al menos 5 caracteres") 
+        if (email==='' || password===''){
+          setMessage("Debés ingresar correo y contraseña.")
         }
         else if (password.length<6){
-            setMessage("La contraseña debe tener al menos 6 caracteres")
+            setMessage("La contraseña debe tener al menos 6 caracteres.")
         }
         else if (password !== repeatPassword){
-          setMessage("Las contraseñas ingresadas no son idénticas")
+          setMessage("Las contraseñas ingresadas no son idénticas.")
       }
       else{
-        handleRegister(auth, email, password)
-        navigate("/tasks")
+
+        try{
+          await  handleRegister(email, password)
+          
+          navigate("/tasks")
+        }
+        catch(err){
+
+          console.log(err.code)
+
+          if (err.code === 'auth/email-already-in-use'){
+            setMessage('No puedes registarte con ese correo porque ya está en uso.')
+          }
+
+          else if (err.code === 'auth/invalid-email'){
+            setMessage('El correo no es válido.')
+          }
+
+          else setMessage('Por favor verificá el correo y contraseña e intentá de nuevo.')
+
+        }
+        
       }
       
     }
@@ -86,7 +106,7 @@ function Register() {
                         <input
                           className="form-input-lr"
                           id="email"
-                          type="text"
+                          type="email"
                           onChange={(e) => SettingEmail(e.target.value)}
                         />
                       </div>
@@ -163,7 +183,7 @@ function Register() {
                 </div>
               </div>
             </div>
-          </div>
+          
 
           <div>
             {message && (
@@ -173,6 +193,7 @@ function Register() {
                 <p className="error-mensaje-lr">{message}</p>
               </div>
             )}
+            </div>
           </div>
         </div>
       </div>

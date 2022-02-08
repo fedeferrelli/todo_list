@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { context } from '../../AuthContext/AuthContext'
-import {auth} from '../../firebase/config'
+
 
 import {FiEyeOff, FiEye} from 'react-icons/fi';
 
@@ -19,7 +19,7 @@ function Login() {
     const [showPassword, setShowPassword] = useState(false)
     const [message, setMessage] = useState('');
 
-    const {handleSignIn, handleSubmitGoogle, googleProvider} = useContext(context)
+    const {handleSignIn, handleSubmitGoogle} = useContext(context)
 
    
 
@@ -35,21 +35,41 @@ function Login() {
         setMessage('')
     }
 
-    const handleSubmit = (e) =>{
+    const handleSubmit =  async (e) =>{
         e.preventDefault();
 
-        if(email.length < 5){
-            setMessage("La dirección de correo debe tener al menos 5 caracteres") 
+        if (email==='' || password===''){
+          setMessage("Debés ingresar correo y contraseña.")
         }
         else if (password.length<6){
-            setMessage("La contraseña debe tener al menos 6 caracteres")
+            setMessage("La contraseña debe tener al menos 6 caracteres.")
         }
         else{
 
-          
-
-          handleSignIn(auth, email, password)
+        try{
+          await handleSignIn(email, password)
           navigate("/tasks")
+        }  catch(err){
+          console.log(err.code)
+
+          if (err.code === 'auth/wrong-password'){
+            setMessage('El correo y la contraseña no coinciden. Por favor volvé a intentar.')
+          }
+
+          else if (err.code === 'auth/user-not-found'){
+            setMessage('El correo no corresponde a ninguno de nuestros usuarios.')
+          }
+
+          else if (err.code === 'auth/invalid-email'){
+            setMessage('El correo no es válido.')
+          }
+
+          else setMessage('Por favor verificá el correo y contraseña e intentá de nuevo.')
+
+
+        }
+
+         
         }
        
     };
@@ -57,7 +77,7 @@ function Login() {
     const handleSubmitWithGoogle = (e) =>{
       e.preventDefault();        
 
-      handleSubmitGoogle(auth,googleProvider)
+      handleSubmitGoogle()
         navigate("/tasks")
       }
      
@@ -89,7 +109,7 @@ function Login() {
                         <input
                           className="form-input-lr"
                           id="email"
-                          type="text"
+                          type="email"
                           onChange={(e) => SettingEmail(e.target.value)}
                         />
                       </div>
@@ -148,7 +168,7 @@ function Login() {
               </div>
               </div>
 
-              
+
               <div>
                 {message && (
                   <div className="show-error-lr">

@@ -17,12 +17,14 @@
     flex-direction: row;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 4rem;
 }
 
 .imagen-left{
     width: 50%;
     display: flex;
     justify-content: right ;
+
 }
 
 .imagen{
@@ -148,7 +150,7 @@ margin-top: 4rem;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-top: 1rem;
 
     text-decoration: none;
@@ -186,6 +188,7 @@ margin-top: 4rem;
     margin-left: 0.5rem;
     text-decoration: none;
     color:  #9c0f48;
+    font-size: 1rem;
 
  
 }
@@ -196,7 +199,8 @@ margin-top: 4rem;
 
 
 .show-error-lr{
-    width: 40%;
+    width: 60%;
+    max-width: 35rem;
     flex-direction: column;
     justify-content: space-between;
     max-width: 25rem;
@@ -229,7 +233,8 @@ margin-top: 4rem;
 }
 
 .show-succes-lr{
-    width: 40%;
+    width: 60%;
+    max-width: 35rem;
     flex-direction: column;
     justify-content: space-between;
     max-width: 25rem;

@@ -16,11 +16,11 @@ export const context = createContext();
 
 export function AuthProvider({children}){
 
-   const handleRegister = async (auth, email, password) =>{
+   const handleRegister = async (email, password) =>{
     await createUserWithEmailAndPassword(auth, email, password)
    }
 
-   const handleSignIn = async (auth, email, password) =>{
+   const handleSignIn = async (email, password) =>{
        await signInWithEmailAndPassword(auth, email, password)
    }
 
@@ -31,11 +31,12 @@ export function AuthProvider({children}){
     signInWithPopup(auth, googleProvider)
    }
 
-   const passwordReset = (auth, email) =>{
+   const passwordReset = (email) =>{
     sendPasswordResetEmail(auth, email)
+  
    }
 
-   const signOutNow = (auth) =>{
+   const signOutNow = () =>{
     signOut(auth)
    }
 
