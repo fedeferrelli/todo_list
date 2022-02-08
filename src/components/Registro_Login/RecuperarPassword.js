@@ -7,6 +7,8 @@ import { context } from "../../AuthContext/AuthContext";
 
 import { Link} from "react-router-dom";
 
+import Image from "../../assets/portrait.svg";
+
 import "../../css/registro_login.css";
 
 function RecuperarPassword() {
@@ -40,7 +42,18 @@ function RecuperarPassword() {
   };
 
   return (
-    <>
+    <div>
+
+<div>
+        <h1 className="titulo-home">
+          Bienvenido a la mejor manera de organizar tus tareas!
+        </h1>
+        <div className="screen">
+          <div className="imagen-left">
+            <img className="imagen" src={Image} alt="tasks" />
+          </div>
+
+
       <div className="form-lr">
         <h1 className="titulo-lr"> Recuperar Contraseña</h1>
 
@@ -69,8 +82,8 @@ function RecuperarPassword() {
               </div>
 
               <div className="login-register-lr">
-                ¿te acordaste?{" "}
-                <Link to="/" className="to-register-lr">
+                ¿Te acordaste?{" "}
+                <Link to="/" className="to-register-login">
                   {" "}
                   Iniciá Sesión{" "}
                 </Link>{" "}
@@ -97,7 +110,11 @@ function RecuperarPassword() {
           </div>
         )}
       </div>
-    </>
+
+      </div>
+      </div>
+
+    </div>
   );
 }
 

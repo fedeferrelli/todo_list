@@ -7,6 +7,8 @@ import {FiEyeOff, FiEye} from 'react-icons/fi';
 
 import { Link, useNavigate } from 'react-router-dom';
 
+import Image from "../../assets/portrait.svg";
+
 import '../../css/registro_login.css';
 
 function Register() {
@@ -60,7 +62,19 @@ function Register() {
 
     return (
 
-        <>
+      
+
+<div>
+        <h1 className="titulo-home">
+          Bienvenido a la mejor manera de organizar tus tareas!
+        </h1>
+        <div className="screen">
+          <div className="imagen-left">
+            <img className="imagen" src={Image} alt="tasks" />
+          </div>
+
+
+
         <div className='form-lr'>
             <h1 className='titulo-lr'> Registro</h1>
             
@@ -128,7 +142,7 @@ function Register() {
                 />
            </div>
 
-            <div  className="login-register-lr">¿Ya tenés una cuenta? <Link to="/" className="to-register-lr"> Iniciá Sesión </Link> </div>
+            <div  className="login-register-lr">¿Ya tenés una cuenta? <Link to="/" className="to-register-login"> Iniciá Sesión </Link> </div>
 
          </div>
        </form>
@@ -152,8 +166,8 @@ function Register() {
 
         </div>
 
-       
-        </>
+        </div>
+        </div>
     )
 }
 

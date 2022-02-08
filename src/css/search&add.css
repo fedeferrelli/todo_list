@@ -6,7 +6,7 @@
   padding-top: 2rem;
   margin-right: auto;
   margin-left: auto;
-  width: 70%;
+  width: 85%;
 }
 
 .search,
@@ -21,6 +21,8 @@
   border: solid lightgrey 0.1px;
   border-radius: 6rem;
   outline: none;
+  border: none;
+  text-decoration: none;
   margin-right: 1.5rem;
   transition: ease-in 400ms;
 }
@@ -45,6 +47,7 @@
   transition: ease-in 300ms;
   cursor: pointer;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .add-button:hover {

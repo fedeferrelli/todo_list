@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 70%;
+  width: 85%;
   margin: auto;
   margin-bottom: 3rem;
   padding-top: 1rem;
@@ -17,6 +17,7 @@
   background-color: #fff;
   transition-duration: 200ms;
   position: relative;
+  height: 100%;
 }
 
 .tasks-number-conteiner {
@@ -178,23 +179,34 @@
 
 .log-out{
   width: auto;
-  padding: 0.5rem;
-  background-color: rgb(223, 221, 221);
+
+  box-sizing: border-box;
+
   font-size: 1rem;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
   text-transform: uppercase;
   color: rgb(61, 59, 59);
-  padding-right: 1rem;
+
+  background-color: rgb(223, 221, 221);
+
   padding-left: 1rem;
-  font-weight: bold;
-  border-radius: 6rem;
-  outline: none;
-  transition: ease-in 300ms;
-  cursor: pointer;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 
   margin-right: auto;
   margin-left: auto;
-  margin-top: 7.5rem;
 
+  border-radius: 6rem;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  
+  transition: ease-in 300ms;
+  cursor: pointer;
+  margin-bottom: 4rem;
 }
 
 .log-out:hover {
@@ -205,11 +217,12 @@
 @media (max-width: 450px) {
   * {
     font-size: 17px;
+
   }
 
   .showTasks {
     flex-direction: column;
-    width: 95%;
+    width: 90%;
   }
 
   .tasks {
@@ -219,5 +232,9 @@
 
   .tasks:hover {
     transform: scale(1);
+  }
+
+  .log-out{
+    width: 90%
   }
 }

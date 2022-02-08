@@ -89,17 +89,19 @@
 .submit,
 .cancelar {
   width: 55%;
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-transform: uppercase;
   color: #fff;
   border-radius: 1rem;
   border: none;
+  text-decoration: none;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
   font-weight: bold;
   background-color: #519259 ;
   transition: ease-in-out 200ms;
   cursor:pointer;
+  text-align: center;
 }
 
 .submit:hover {

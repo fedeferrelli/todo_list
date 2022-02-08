@@ -137,16 +137,18 @@ function Login() {
                     </div>
                   </form>
                 </div>
-              </div>
+              
 
               <div className="login-register-lr login-password-lr">
                 {" "}
-                <Link to="/recuperarPassword" className="to-password">
+                <Link to="/recuperarPassword" className="to-register-login">
                   {" "}
                   ¿Olvidaste tu contraseña?{" "}
                 </Link>{" "}
               </div>
+              </div>
 
+              
               <div>
                 {message && (
                   <div className="show-error-lr">

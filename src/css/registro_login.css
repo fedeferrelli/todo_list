@@ -6,7 +6,7 @@
     margin: auto;
     margin-bottom: 0;
     text-align: center;
-  /*   background-color: #641b35; */
+    margin-top: 3rem;
 
 }
 
@@ -24,7 +24,7 @@
 .imagen{
     width:70%;
     margin: auto;
-   /*  margin-top: 2rem; */
+   
 }
 
 
@@ -153,7 +153,6 @@ margin-top: 4rem;
 
 .login-password-lr{
     width:100%;
-    /* max-width: 25rem; */
     text-align: center;
     flex-direction: column;
     margin-left: auto;
@@ -179,8 +178,11 @@ margin-top: 4rem;
 }
 
 .to-register-login{
-    margin-left: 0.5rem; 
-    color: #9c0f48; 
+    margin-left: 0.5rem;
+    text-decoration: none;
+    color:  #9c0f48;
+
+ 
 }
 
 .to-password-lr{
@@ -263,7 +265,7 @@ margin-top: 4rem;
 
 .google-login-lr{
    width: 100%;
-   
+   text-align: center;
     padding: 1rem;
     background-color: white;
     border-radius: 10rem;
@@ -289,6 +291,10 @@ margin-top: 4rem;
       font-size: 17px;
     }
 
+    .titulo-home{
+        font-size: 1.5rem;
+    }
+
     .screen{
         flex-direction: column;
     
@@ -302,7 +308,33 @@ margin-top: 4rem;
         width:80%;
     }
 
-    .login-register{
-        font-size: 1rem;   
+
+    .imagen-left{
+        width: 100%;
+        order: 2;
+        margin-bottom: 4rem;
+    }
+
+    .imagen{
+        width:90%;
+       
+    }
+
+    .text-form-lr{
+        width: 100%;
+        order: 1;
+        margin-bottom: 4rem;   
+    }
+
+    .form-lr{
+        margin-top: 4rem;
+          margin-left: auto;
+          margin-right: auto;
+          width: 90%;
+    }
+
+    .botonera-google-lr{
+
+        width: 81%;
     }
 }
