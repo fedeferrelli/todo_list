@@ -7,23 +7,28 @@
     margin-bottom: 0;
     text-align: center;
     margin-top: 3rem;
+    font-style: italic;
 
 }
 
 .screen{
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .imagen-left{
     width: 50%;
     display: flex;
+    justify-content: right ;
 }
 
 .imagen{
-    width:70%;
+    width:90%;
     margin: auto;
+    text-align: right;
    
 }
 
@@ -51,10 +56,8 @@ margin-top: 4rem;
   margin-right: auto;
   width: 60%;
   max-width: 35rem;
-  box-shadow: darkgray 0 0 0.75rem;
   border-radius: 0.5rem;
   background-color: #fff;
-
   padding-bottom: 1.5rem;
    
 }
@@ -79,14 +82,16 @@ margin-top: 4rem;
     padding-top: 1rem;    
   }
 
+
+
   .form-label-lr {
-    margin: 0%;
+    margin-bottom: 0;
     text-transform: capitalize;
     font-size: 1.2rem;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     color: rgb(110, 109, 109);
-    font-weight: lighter;
-  
+    font-weight: bold;
+
   }
   
   
@@ -297,6 +302,7 @@ margin-top: 4rem;
 
     .screen{
         flex-direction: column;
+        width: 100%;
     
     }
   
@@ -332,6 +338,10 @@ margin-top: 4rem;
           margin-right: auto;
           width: 90%;
     }
+
+    .form-bloque-lr {
+        margin-top: 1.2rem;        
+      }
 
     .botonera-google-lr{
 

@@ -61,10 +61,7 @@ function Register() {
 
 
     return (
-
-      
-
-<div>
+      <div>
         <h1 className="titulo-home">
           Bienvenido a la mejor manera de organizar tus tareas!
         </h1>
@@ -73,102 +70,113 @@ function Register() {
             <img className="imagen" src={Image} alt="tasks" />
           </div>
 
+          <div className="text-form-lr">
+            <div className="login-register">
+              <div className="form-lr">
+                <h1 className="titulo-lr"> Registro</h1>
 
+                <div className="bloque-lr">
+                  <form onSubmit={handleSubmit} className="form-body-lr">
+                    <div className="bloque-big-screen-lr">
+                      <div className="form-bloque-lr">
+                        <label className="form-label-lr" htmlFor="email">
+                          Correo Electrónico
+                        </label>
 
-        <div className='form-lr'>
-            <h1 className='titulo-lr'> Registro</h1>
-            
-            <div className="bloque-lr">
-       <form onSubmit={handleSubmit} className="form-body-lr">
-           
-         <div className="bloque-big-screen-lr">
-           <div className="form-bloque-lr">
-             <label className="form-label-lr" htmlFor="email">
-               Correo Electrónico
-             </label>
+                        <input
+                          className="form-input-lr"
+                          id="email"
+                          type="text"
+                          onChange={(e) => SettingEmail(e.target.value)}
+                        />
+                      </div>
 
-             <input
-               className="form-input-lr"
-               id="email"
-               type="text"
-              onChange={(e) => SettingEmail(e.target.value)}
-              
-             />
-           </div>
+                      <div className="form-bloque-lr">
+                        <label className="form-label-lr" htmlFor="password">
+                          Contraseña
+                        </label>
 
-       
-           <div className="form-bloque-lr">
-             <label className="form-label-lr" htmlFor="password">
-               Contraseña 
-               
-             </label>
+                        {showPassword ? (
+                          <FiEyeOff
+                            className="password-icon-lr"
+                            onClick={(e) => setShowPassword(!showPassword)}
+                          />
+                        ) : (
+                          <FiEye
+                            className="password-icon-lr"
+                            onClick={(e) => setShowPassword(!showPassword)}
+                          />
+                        )}
 
-             {showPassword ? <FiEyeOff className='password-icon-lr' onClick = {(e) => setShowPassword(!showPassword)}/> :
-                <FiEye className='password-icon-lr' onClick = {(e) => setShowPassword(!showPassword)}/>} 
+                        <input
+                          className="form-input-lr"
+                          id="password"
+                          type={showPassword ? "text" : "password"}
+                          onChange={(e) => SettingPassword(e.target.value)}
+                        />
+                      </div>
 
-             <input
-               className="form-input-lr"
-               id="password"
-               type= {showPassword ? 'text' :  "password"}   
-              
-              onChange={(e) => SettingPassword(e.target.value)}
-             />               
-           </div>
+                      <div className="form-bloque-lr">
+                        <label className="form-label-lr" htmlFor="password">
+                          Repetir Contraseña
+                        </label>
 
-           <div className="form-bloque-lr">
-             <label className="form-label-lr" htmlFor="password">
-               Repetir Contraseña 
-               
-             </label>
+                        {showPassword ? (
+                          <FiEyeOff
+                            className="password-icon-lr"
+                            onClick={(e) => setShowPassword(!showPassword)}
+                          />
+                        ) : (
+                          <FiEye
+                            className="password-icon-lr"
+                            onClick={(e) => setShowPassword(!showPassword)}
+                          />
+                        )}
 
-             {showPassword ? <FiEyeOff className='password-icon-lr' onClick = {(e) => setShowPassword(!showPassword)}/> :
-                <FiEye className='password-icon-lr' onClick = {(e) => setShowPassword(!showPassword)}/>} 
+                        <input
+                          className="form-input-lr"
+                          id="repeat-password"
+                          type={showPassword ? "text" : "password"}
+                          onChange={(e) =>
+                            SettingRepeatPassword(e.target.value)
+                          }
+                        />
+                      </div>
 
-             <input
-               className="form-input-lr"
-               id="repeat-password"
-               type= {showPassword ? 'text' :  "password"}   
-              
-              onChange={(e) => SettingRepeatPassword(e.target.value)}
-             />               
-           </div>
+                      <div className="botonera-lr">
+                        <input
+                          className="submit-lr"
+                          type="submit"
+                          value="Registrarme"
+                        />
+                      </div>
 
-           <div className='botonera-lr'>
+                      <div className="login-register-lr">
+                        ¿Ya tenés una cuenta?{" "}
+                        <Link to="/" className="to-register-login">
+                          {" "}
+                          Iniciá Sesión{" "}
+                        </Link>{" "}
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                <input
-                    className="submit-lr"
-                    type="submit"
-                    value="Registrarme"
-                />
-           </div>
+          <div>
+            {message && (
+              <div className="show-error-lr">
+                <h1 className="error-titulo-lr">Error:</h1>
 
-            <div  className="login-register-lr">¿Ya tenés una cuenta? <Link to="/" className="to-register-login"> Iniciá Sesión </Link> </div>
-
-         </div>
-       </form>
-     </div>
-     </div>
-
-
-
-
-     <div>
-
-            { message &&
-                
-                <div className='show-error-lr'> 
-            <h1 className="error-titulo-lr">Error:</h1>
-
-            <p className="error-mensaje-lr">{message}</p>
-
-            
-            </div>}
-
+                <p className="error-mensaje-lr">{message}</p>
+              </div>
+            )}
+          </div>
         </div>
-
-        </div>
-        </div>
-    )
+      </div>
+    );
 }
 
 export default Register
