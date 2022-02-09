@@ -3,6 +3,8 @@ import { context } from '../AuthContext/AuthContext';
 import { useNavigate } from 'react-router';
 import {db} from '../firebase/config';
 
+import Loading from './Loading';
+
 
 import { collection, getDocs } from "firebase/firestore";
 
@@ -12,7 +14,7 @@ import SearchAndAdd from './Search&Add'
 
 import '../css/Tasks.css'
 
-const ShowTasks = ({setTrigger, trigger}) =>{
+const ShowTasks = ({setTrigger, trigger, showLoading, setShowLoading}) =>{
 
     const [search, setSearch] = useState('')
 
@@ -20,6 +22,8 @@ const ShowTasks = ({setTrigger, trigger}) =>{
     const [progressData, setProgressData] = useState([]);
     const [doneData, setDoneData] = useState([]);
    
+    
+
     const {uid, signOutNow} = useContext(context);
    
     const navigate = useNavigate();
@@ -33,6 +37,8 @@ const ShowTasks = ({setTrigger, trigger}) =>{
     }
 
 useEffect(() => {
+
+ 
 
     const getData = async () => {
       const querySnapshot = await getDocs(collection(db, uid));
@@ -50,6 +56,7 @@ useEffect(() => {
       setToDoData(dataOk.filter(task => task.estadio==='para hacer'))
       setProgressData(dataOk.filter(task => task.estadio==='progreso'))
       setDoneData(dataOk.filter(task => task.estadio==='hecho'))
+      setShowLoading(false)
     };
 
       getData();
@@ -59,7 +66,12 @@ useEffect(() => {
 
 
  return (
+
+  
    <div style={{display: 'flex', flexDirection: 'column'}}> 
+
+
+        { showLoading && <Loading/>}
 
         <div className='.search-and-add'>
         <SearchAndAdd
@@ -75,6 +87,7 @@ useEffect(() => {
         title='Things To Do'
         trigger = {trigger}
         setTrigger = {setTrigger} 
+        setShowLoading={setShowLoading}
         />
     
         <Tasks 
@@ -82,6 +95,7 @@ useEffect(() => {
         title='Things In Progress'
         trigger = {trigger}
         setTrigger = {setTrigger}
+        setShowLoading={setShowLoading}
          />
     
         <Tasks 
@@ -89,6 +103,7 @@ useEffect(() => {
         title='Things Already Done'
         trigger = {trigger}
         setTrigger = {setTrigger}
+        setShowLoading={setShowLoading}
          />
     
     </div>

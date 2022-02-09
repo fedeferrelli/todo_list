@@ -11,7 +11,9 @@ import RecuperarPassword from "./components/Registro_Login/RecuperarPassword";
 
 import { AuthProvider } from './AuthContext/AuthContext'
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+
 
 
 
@@ -20,20 +22,28 @@ function App() {
 
   const [trigger, setTrigger] = useState(false);
 
-  return (
+  const [showLoading, setShowLoading] = useState(true);
+
+  return (   
+
 
     <AuthProvider>
+     
     <BrowserRouter>
+   
+
       <Routes>
-        
+      
 
-        <Route path="/" element={<Login />}></Route>
+        <Route path="/" element={<Login                                 
+                                setShowLoading={setShowLoading}/>}></Route>
 
-        <Route path="/register" index element={<Register />}></Route>
+        <Route path="/register" index element={<Register                                              
+                                              setShowLoading={setShowLoading} />}></Route>
 
         <Route
           path="/recuperarPassword"
-          element={<RecuperarPassword />}
+          element={<RecuperarPassword/>}
         ></Route>
 
         <Route
@@ -43,6 +53,8 @@ function App() {
              
               trigger={trigger}
               setTrigger={setTrigger}
+              showLoading={showLoading}
+              setShowLoading={setShowLoading}
             />
           }
         ></Route>
@@ -53,12 +65,15 @@ function App() {
             <CargaDatos
               setTrigger={setTrigger}
               trigger={trigger}
+              setShowLoading={setShowLoading}
             />
           }
         ></Route>
       </Routes>
     </BrowserRouter>
     </AuthProvider>
+  
+    
   );
   }
 

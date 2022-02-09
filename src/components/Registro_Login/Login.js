@@ -11,7 +11,7 @@ import '../../css/registro_login.css';
 
 
 
-function Login() {
+function Login({setShowLoading}) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -48,6 +48,7 @@ function Login() {
 
         try{
           await handleSignIn(email, password)
+          setShowLoading(true)
           navigate("/tasks")
         }  catch(err){
           console.log(err.code)
@@ -74,11 +75,11 @@ function Login() {
        
     };
 
-    const handleSubmitWithGoogle = (e) =>{
+    const handleSubmitWithGoogle = async (e) =>{
       e.preventDefault();        
-
-      handleSubmitGoogle()
-        navigate("/tasks")
+      setShowLoading(true)
+      await handleSubmitGoogle()
+      navigate("/tasks")
       }
      
   

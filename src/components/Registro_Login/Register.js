@@ -11,7 +11,7 @@ import Image from "../../assets/portrait.svg";
 
 import '../../css/registro_login.css';
 
-function Register() {
+function Register({setShowLoading}) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -55,9 +55,10 @@ function Register() {
       else{
 
         try{
-          await  handleRegister(email, password)
-          
+          await handleRegister(email, password);
+          setShowLoading(true);
           navigate("/tasks")
+          
         }
         catch(err){
 

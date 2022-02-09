@@ -9,12 +9,14 @@ import { collection, addDoc } from "firebase/firestore";
 
 import "../css/cargaDatos.css";
 
-const CargaDatos = ({ trigger, setTrigger, setShowForm }) => {
+const CargaDatos = ({ trigger, setTrigger, setShowLoading }) => {
   // States para los datos
 
   const [tarea, setTarea] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [estadio, setEstadio] = useState("para hacer");
+
+  const [message, setMessage] = useState('');
 
   const {uid} = useContext(context)
 
@@ -25,6 +27,11 @@ const CargaDatos = ({ trigger, setTrigger, setShowForm }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (tarea===''){
+      setMessage("Debés ingresar una tarea.")
+    }
+    else{
+
     try {
       await addDoc(collection(db, uid), {
         tarea: tarea,
@@ -32,20 +39,23 @@ const CargaDatos = ({ trigger, setTrigger, setShowForm }) => {
         estadio: estadio,
         fecha: Date(),
       });
-
+      setTarea("");
+      setDescripcion("");
+      setEstadio("para hacer");
+     
+      setShowLoading(true)
       setTrigger(!trigger);
+      navigate("/tasks");
     } catch (e) {
       console.error("Ocurrió un error al cargar la tarea: ", e);
     }
 
-    setTarea("");
-    setDescripcion("");
-    setEstadio("para hacer");
-   
-    navigate("/tasks");
+  
+  }
   };
 
   return (
+    <div>
     <div className="form">
       <h1 className="titulo"> Agregar Nueva Tarea </h1>
 
@@ -137,7 +147,23 @@ const CargaDatos = ({ trigger, setTrigger, setShowForm }) => {
           </div>
         </form>
       </div>
-    </div>
+      </div>
+
+
+      <div>
+            {message && (
+              <div className="show-error-lr">
+                <h1 className="error-titulo-lr">Error:</h1>
+
+                <p className="error-mensaje-lr">{message}</p>
+              </div>
+            )}
+            </div>
+
+</div>
+    
+
+    
   );
 };
 

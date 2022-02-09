@@ -10,7 +10,7 @@ import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { MdDeleteForever } from 'react-icons/md';
 
 
-const Tasks = ({data, title, trigger, setTrigger}) =>{
+const Tasks = ({data, title, trigger, setTrigger, setShowLoading}) =>{
 
 
     const {uid} = useContext(context)
@@ -26,6 +26,7 @@ const Tasks = ({data, title, trigger, setTrigger}) =>{
         { try {
             deleteDoc(doc(db, uid, id));
             setTrigger(!trigger)
+            setShowLoading(true)
            
          } catch (error) {
              console.log(error)  
@@ -43,6 +44,7 @@ const Tasks = ({data, title, trigger, setTrigger}) =>{
               });
               
             setTrigger(!trigger)
+            setShowLoading(true)
             
 
          } catch (error) {

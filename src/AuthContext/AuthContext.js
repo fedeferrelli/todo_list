@@ -16,8 +16,8 @@ export const context = createContext();
 
 export function AuthProvider({children}){
 
-   const handleRegister = async (email, password) =>{
-    await createUserWithEmailAndPassword(auth, email, password)
+   const handleRegister = (email, password) =>{
+    createUserWithEmailAndPassword(auth, email, password)
    }
 
    const handleSignIn = async (email, password) =>{
@@ -27,8 +27,8 @@ export function AuthProvider({children}){
 
    const googleProvider = new GoogleAuthProvider();
 
-   const handleSubmitGoogle = () =>{
-    signInWithPopup(auth, googleProvider)
+   const handleSubmitGoogle = async () =>{
+    await signInWithPopup(auth, googleProvider)
    }
 
    const passwordReset = (email) =>{
