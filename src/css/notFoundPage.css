@@ -3,6 +3,10 @@
     flex-direction: column;
     width: 100%;
     height: 100vh;
+    background-image:#000000;background-image:  
+radial-gradient(at 88% 41%, hsla(336,83%,34%,1) 0, transparent 77%),  
+radial-gradient(at 41% 83%, hsla(25,65%,55%,1) 0, transparent 100%),  
+radial-gradient(at 13% 29%, hsla(1,69%,58%,1) 0, transparent 100%);
 }
 
 .not-found-text{
