@@ -1,0 +1,36 @@
+.not-found-page{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.not-found-text{
+   
+        color: white;
+        margin: auto;
+        font-size: 2rem;
+       text-align: center;
+       font-style: italic;
+        padding: 2rem;
+
+}
+
+
+.not-found-img{
+    width: 40%;
+    margin: auto
+}
+
+
+@media (max-width: 450px) {
+    * {
+      font-size: 14px;
+    }
+
+    .not-found-img{
+        width: 80%;
+       
+    }
+    
+}

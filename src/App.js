@@ -12,6 +12,8 @@ import RecuperarPassword from "./components/Registro_Login/RecuperarPassword";
 
 import Loading from "./components/Loading";
 
+import NotFoundPage from "./components/NotFoundPage";
+
 import { AuthProvider } from './AuthContext/AuthContext'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -73,6 +75,8 @@ function App() {
                          />
           }
         ></Route>
+
+        <Route path="*" element={<NotFoundPage/>} />
       </Routes>
     </BrowserRouter>
     </AuthProvider>
