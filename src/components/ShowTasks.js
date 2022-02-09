@@ -14,7 +14,7 @@ import SearchAndAdd from './Search&Add'
 
 import '../css/Tasks.css'
 
-const ShowTasks = ({setTrigger, trigger, showLoading, setShowLoading}) =>{
+const ShowTasks = ({setTrigger, trigger}) =>{
 
     const [search, setSearch] = useState('')
 
@@ -22,7 +22,7 @@ const ShowTasks = ({setTrigger, trigger, showLoading, setShowLoading}) =>{
     const [progressData, setProgressData] = useState([]);
     const [doneData, setDoneData] = useState([]);
    
-    
+    const [showLoading, setShowLoading] = useState(false);
 
     const {uid, signOutNow} = useContext(context);
    
@@ -38,7 +38,7 @@ const ShowTasks = ({setTrigger, trigger, showLoading, setShowLoading}) =>{
 
 useEffect(() => {
 
- 
+  setShowLoading(true)
 
     const getData = async () => {
       const querySnapshot = await getDocs(collection(db, uid));
@@ -52,14 +52,15 @@ useEffect(() => {
       });
 
       const dataOk = datos.filter(item => ( item.tarea.toLowerCase().includes(search.toLowerCase()) ||  item.descripcion.toLowerCase().includes(search.toLowerCase()) ))
-    
+      setShowLoading(false);
       setToDoData(dataOk.filter(task => task.estadio==='para hacer'))
       setProgressData(dataOk.filter(task => task.estadio==='progreso'))
       setDoneData(dataOk.filter(task => task.estadio==='hecho'))
-      setShowLoading(false)
+     /*  */
     };
-
+    
       getData();
+      /*  */
   }, [trigger, uid, search]);
 
     

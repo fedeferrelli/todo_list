@@ -22,7 +22,7 @@ function App() {
 
   const [trigger, setTrigger] = useState(false);
 
-  const [showLoading, setShowLoading] = useState(true);
+ 
 
   return (   
 
@@ -36,10 +36,10 @@ function App() {
       
 
         <Route path="/" element={<Login                                 
-                                setShowLoading={setShowLoading}/>}></Route>
+                               /*  setShowLoading={setShowLoading} *//>}></Route>
 
         <Route path="/register" index element={<Register                                              
-                                              setShowLoading={setShowLoading} />}></Route>
+                                             /*  setShowLoading={setShowLoading} */ />}></Route>
 
         <Route
           path="/recuperarPassword"
@@ -53,8 +53,8 @@ function App() {
              
               trigger={trigger}
               setTrigger={setTrigger}
-              showLoading={showLoading}
-              setShowLoading={setShowLoading}
+              /* showLoading={showLoading}
+              setShowLoading={setShowLoading} */
             />
           }
         ></Route>
@@ -65,7 +65,7 @@ function App() {
             <CargaDatos
               setTrigger={setTrigger}
               trigger={trigger}
-              setShowLoading={setShowLoading}
+             /*  setShowLoading={setShowLoading} */
             />
           }
         ></Route>

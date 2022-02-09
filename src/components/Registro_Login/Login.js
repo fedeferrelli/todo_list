@@ -48,7 +48,7 @@ function Login({setShowLoading}) {
 
         try{
           await handleSignIn(email, password)
-          setShowLoading(true)
+          /* setShowLoading(true) */
           navigate("/tasks")
         }  catch(err){
           console.log(err.code)
@@ -77,7 +77,7 @@ function Login({setShowLoading}) {
 
     const handleSubmitWithGoogle = async (e) =>{
       e.preventDefault();        
-      setShowLoading(true)
+      /* setShowLoading(true) */
       await handleSubmitGoogle()
       navigate("/tasks")
       }

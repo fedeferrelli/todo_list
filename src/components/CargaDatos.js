@@ -43,7 +43,7 @@ const CargaDatos = ({ trigger, setTrigger, setShowLoading }) => {
       setDescripcion("");
       setEstadio("para hacer");
      
-      setShowLoading(true)
+     /*  setShowLoading(true) */
       setTrigger(!trigger);
       navigate("/tasks");
     } catch (e) {
