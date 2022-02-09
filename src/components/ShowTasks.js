@@ -3,7 +3,7 @@ import { context } from '../AuthContext/AuthContext';
 import { useNavigate } from 'react-router';
 import {db} from '../firebase/config';
 
-import Loading from './Loading';
+/* import Loading from './Loading'; */
 
 
 import { collection, getDocs } from "firebase/firestore";
@@ -14,7 +14,7 @@ import SearchAndAdd from './Search&Add'
 
 import '../css/Tasks.css'
 
-const ShowTasks = ({setTrigger, trigger}) =>{
+const ShowTasks = ({setTrigger, trigger, setShowLoading}) =>{
 
     const [search, setSearch] = useState('')
 
@@ -22,7 +22,7 @@ const ShowTasks = ({setTrigger, trigger}) =>{
     const [progressData, setProgressData] = useState([]);
     const [doneData, setDoneData] = useState([]);
    
-    const [showLoading, setShowLoading] = useState(false);
+   
 
     const {uid, signOutNow} = useContext(context);
    
@@ -38,7 +38,7 @@ const ShowTasks = ({setTrigger, trigger}) =>{
 
 useEffect(() => {
 
-  setShowLoading(true)
+  /* setShowLoading(true) */
 
     const getData = async () => {
       const querySnapshot = await getDocs(collection(db, uid));
@@ -52,16 +52,16 @@ useEffect(() => {
       });
 
       const dataOk = datos.filter(item => ( item.tarea.toLowerCase().includes(search.toLowerCase()) ||  item.descripcion.toLowerCase().includes(search.toLowerCase()) ))
-      setShowLoading(false);
+     /*  setShowLoading(false); */
       setToDoData(dataOk.filter(task => task.estadio==='para hacer'))
       setProgressData(dataOk.filter(task => task.estadio==='progreso'))
       setDoneData(dataOk.filter(task => task.estadio==='hecho'))
-     /*  */
+      setShowLoading(false)
     };
     
       getData();
       /*  */
-  }, [trigger, uid, search]);
+  }, [trigger, uid, search, setShowLoading]);
 
     
 
@@ -72,7 +72,7 @@ useEffect(() => {
    <div style={{display: 'flex', flexDirection: 'column'}}> 
 
 
-        { showLoading && <Loading/>}
+       
 
         <div className='.search-and-add'>
         <SearchAndAdd

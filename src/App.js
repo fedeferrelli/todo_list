@@ -6,8 +6,11 @@ import ShowTasks from "./components/ShowTasks";
 
 import Login from "./components/Registro_Login/Login";
 
-import Register from "./components/Registro_Login/Register"
+import Register from "./components/Registro_Login/Register";
+
 import RecuperarPassword from "./components/Registro_Login/RecuperarPassword";
+
+import Loading from "./components/Loading";
 
 import { AuthProvider } from './AuthContext/AuthContext'
 
@@ -21,7 +24,7 @@ function App() {
  
 
   const [trigger, setTrigger] = useState(false);
-
+  const [showLoading, setShowLoading] = useState(false);
  
 
   return (   
@@ -31,15 +34,16 @@ function App() {
      
     <BrowserRouter>
    
+    { showLoading && <Loading/>}
 
       <Routes>
       
 
         <Route path="/" element={<Login                                 
-                               /*  setShowLoading={setShowLoading} *//>}></Route>
+                               setShowLoading={setShowLoading}/>}></Route>
 
         <Route path="/register" index element={<Register                                              
-                                             /*  setShowLoading={setShowLoading} */ />}></Route>
+                                             setShowLoading={setShowLoading}/>}></Route>
 
         <Route
           path="/recuperarPassword"
@@ -53,8 +57,8 @@ function App() {
              
               trigger={trigger}
               setTrigger={setTrigger}
-              /* showLoading={showLoading}
-              setShowLoading={setShowLoading} */
+              showLoading={showLoading}
+              setShowLoading={setShowLoading}
             />
           }
         ></Route>
@@ -65,8 +69,8 @@ function App() {
             <CargaDatos
               setTrigger={setTrigger}
               trigger={trigger}
-             /*  setShowLoading={setShowLoading} */
-            />
+             setShowLoading={setShowLoading}
+                         />
           }
         ></Route>
       </Routes>

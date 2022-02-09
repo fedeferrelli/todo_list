@@ -8,6 +8,7 @@
     text-align: center;
     margin-top: 3rem;
     font-style: italic;
+    font-size: 3.5rem;
 
 }
 
@@ -81,10 +82,11 @@ margin-top: 4rem;
   .bloque-lr {
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 1rem;    
   }
 
-
+  .form-bloque-lr { 
+    margin-top: 1.5rem;
+  }
 
   .form-label-lr {
     margin-bottom: 0;
@@ -93,10 +95,8 @@ margin-top: 4rem;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     color: rgb(110, 109, 109);
     font-weight: bold;
-
   }
-  
-  
+   
   .form-input-lr {
     font-size: 1.2rem;
     font-weight: normal;
@@ -108,6 +108,7 @@ margin-top: 4rem;
     color: rgb(92, 90, 90);
     border: solid 0.5px rgb(187, 185, 185);
     transition: ease-in-out 200ms;
+  
   }
   
   .form-input-lr:focus {

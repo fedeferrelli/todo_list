@@ -26,7 +26,7 @@ const Tasks = ({data, title, trigger, setTrigger, setShowLoading}) =>{
         { try {
             deleteDoc(doc(db, uid, id));
             setTrigger(!trigger)
-            /* setShowLoading(true) */
+            setShowLoading(true)
            
          } catch (error) {
              console.log(error)  
@@ -44,7 +44,7 @@ const Tasks = ({data, title, trigger, setTrigger, setShowLoading}) =>{
               });
               
             setTrigger(!trigger)
-            /* setShowLoading(true) */
+            setShowLoading(true)
             
 
          } catch (error) {

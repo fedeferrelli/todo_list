@@ -56,7 +56,7 @@ function Register({setShowLoading}) {
 
         try{
           await handleRegister(email, password);
-          /* setShowLoading(true); */
+          setShowLoading(true);
           navigate("/tasks")
           
         }

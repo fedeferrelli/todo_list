@@ -34,20 +34,22 @@ const CargaDatos = ({ trigger, setTrigger, setShowLoading }) => {
 
     try {
       await addDoc(collection(db, uid), {
+        
         tarea: tarea,
         descripcion: descripcion,
         estadio: estadio,
         fecha: Date(),
       });
+      setShowLoading(true)
       setTarea("");
       setDescripcion("");
       setEstadio("para hacer");
      
-     /*  setShowLoading(true) */
+      
       setTrigger(!trigger);
       navigate("/tasks");
-    } catch (e) {
-      console.error("Ocurrió un error al cargar la tarea: ", e);
+    } catch (err) {
+      console.error("Ocurrió un error al cargar la tarea: ", err);
     }
 
   
