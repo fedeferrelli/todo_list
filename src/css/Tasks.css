@@ -178,7 +178,7 @@
 
 .log-out{
   width: auto;
-
+  
   box-sizing: border-box;
 
   font-size: 1rem;
@@ -234,6 +234,7 @@
   }
 
   .log-out{
-    width: 90%
+    width: 90%;
+    height: 3rem;
   }
 }

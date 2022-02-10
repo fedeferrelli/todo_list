@@ -55,14 +55,12 @@
   background-color: rgb(139, 136, 136);
 }
 
-
 .user {
   color: white;
   flex-grow: 1;
   text-align: right;
   font-size: 1.25rem;
   font-style: italic;
-
 }
 
 @media (max-width: 450px) {
@@ -70,38 +68,38 @@
     font-size: 17px;
   }
 
-  .search-and-add{
-    
-      display:flex;
-      flex-direction: column ;
-      justify-content: center;
-      align-items: center;
-      
-      margin-right: auto;
-      margin-left: auto;
-      width: 90%;
+  .search-and-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
   }
 
-
-  .search, .add-button, .user {
+  .search,
+  .add-button,
+  .user {
     width: 100%;
     font-size: 0.9rem;
     margin-right: auto;
-      margin-left: auto;
-      margin-bottom: 1.5rem;
+    margin-left: auto;
+    margin-bottom: 1.5rem;
   }
 
-.user{
-  font-size: 1.25rem;
-  order: 1
-}
+  .user {
+    font-size: 1.25rem;
+    order: 1;
+  }
 
-.search{
-  order: 2
-}
+  .search {
+    order: 2;
+  }
 
-.add-button{
-  order:3
-}
-
+  .add-button {
+    order: 3;
+    height: 3rem;
+  }
 }
