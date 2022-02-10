@@ -39,6 +39,7 @@ const CargaDatos = ({ trigger, setTrigger, setShowLoading }) => {
         descripcion: descripcion,
         estadio: estadio,
         fecha: Date(),
+        fecha2: Math.round(new Date()),
       });
       setShowLoading(true)
       setTarea("");

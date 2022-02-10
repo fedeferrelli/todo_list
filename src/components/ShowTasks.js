@@ -51,6 +51,10 @@ useEffect(() => {
       });
 
       const dataOk = datos.filter(item => ( item.tarea.toLowerCase().includes(search.toLowerCase()) ||  item.descripcion.toLowerCase().includes(search.toLowerCase()) ))
+      
+
+
+      dataOk.sort((a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime() )      
       setToDoData(dataOk.filter(task => task.estadio==='para hacer'))
       setProgressData(dataOk.filter(task => task.estadio==='progreso'))
       setDoneData(dataOk.filter(task => task.estadio==='hecho'))
