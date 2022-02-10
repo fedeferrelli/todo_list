@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { context } from "../AuthContext/AuthContext";
 
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import '../css/search&add.css'
 
@@ -17,8 +17,10 @@ const Search = ({setSearch}) =>{
 
     const {user} = useContext(context)
 
-  
-
+const navigate = useNavigate();  
+const addTask = () =>{
+    navigate("/cargarDatos")
+}
     
  
 
@@ -32,13 +34,12 @@ const Search = ({setSearch}) =>{
         onChange={e=>onChange(e)}
         />
 
-        <Link to="/cargarDatos" className='add-button'
-        
-        >Agregar Tarea</Link>
+<button className="add-button" onClick={addTask}>
+          {" "}
+          Agregar Tarea{" "}
+        </button>
 
         <div className='user' > {user} </div>
-
-        
 
         </div>
     )

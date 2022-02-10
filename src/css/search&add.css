@@ -9,8 +9,7 @@
   width: 85%;
 }
 
-.search,
-.add-button {
+.search {
   box-sizing: border-box;
   padding: 0.5rem;
   padding-left: 1.5rem;
@@ -35,19 +34,34 @@
 
 .add-button {
   width: auto;
-  background-color: #470d21;
-  background-color: rgb(223, 221, 221);
-  color: rgb(61, 59, 59);
-  padding-right: 1rem;
-  padding-left: 1rem;
-  margin-right: 0rem;
+
+  box-sizing: border-box;
+
+  font-size: 1rem;
   font-style: normal;
   font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(61, 59, 59);
+
+  background-color: rgb(223, 221, 221);
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: auto;
+  padding-bottom: auto;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  border-radius: 6rem;
+  outline: none;
   border: none;
+  text-decoration: none;
+
   transition: ease-in 300ms;
   cursor: pointer;
-  text-transform: uppercase;
-  text-align: center;
+
 }
 
 .add-button:hover {
@@ -87,6 +101,10 @@
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 1.5rem;
+  }
+
+  .add-button {
+    font-size: 1.2rem;
   }
 
   .user {
