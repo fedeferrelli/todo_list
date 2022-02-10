@@ -59,7 +59,7 @@ const ShowTasks = ({ setTrigger, trigger, setShowLoading }) => {
   }, [trigger, uid, search, setShowLoading]);
 
   return (
-    <FadeIn delay={1000}>
+    <FadeIn delay={2000}>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div className=".search-and-add">
           <SearchAndAdd setSearch={setSearch} />
