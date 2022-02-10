@@ -56,10 +56,17 @@ const Tasks = ({data, title, trigger, setTrigger, setShowLoading}) =>{
 
 
 const getDays = (date) =>{
-   const days = (new Date().getTime()-new Date(date).getTime())/(1000*60*60*24);
-   return(`Creado hace ${parseInt(days)} dias`)
-}  
+   const seconds = (new Date().getTime()-new Date(date).getTime())/(1000);
+  
+  var rtf = new Intl.RelativeTimeFormat(navigator.language, { numeric: 'auto' });
 
+  
+  if (seconds > 2635200) return rtf.format(-seconds/2635200, 'months')
+  else if (seconds > 86400) return rtf.format(-Math.round(seconds/86400), 'days')
+  else if (seconds > 3600) return rtf.format(-Math.round(seconds/3600), 'hours')
+  else if (seconds > 60) return rtf.format(- Math.round(seconds/60), 'minutes')
+  else return rtf.format(-Math.round(seconds), 'seconds') 
+}  
 
 
  return(
