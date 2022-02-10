@@ -1,66 +1,65 @@
-import {createContext, useState} from 'react';
-import { auth } from '../firebase/config';
+import { createContext, useState } from "react";
+import { auth } from "../firebase/config";
 
-
-import { 
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    GoogleAuthProvider,
-    signInWithPopup,
-    sendPasswordResetEmail,
-    signOut 
-} from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
+  signOut,
+} from "firebase/auth";
 
 export const context = createContext();
 
-export function AuthProvider({children}){
+export function AuthProvider({ children }) {
+  const handleRegister = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password);
+  };
 
-   const handleRegister = (email, password) =>{
-    createUserWithEmailAndPassword(auth, email, password)
-   }
+  const handleSignIn = async (email, password) => {
+    await signInWithEmailAndPassword(auth, email, password);
+  };
 
-   const handleSignIn = async (email, password) =>{
-       await signInWithEmailAndPassword(auth, email, password)
-   }
+  const googleProvider = new GoogleAuthProvider();
 
+  const handleSubmitGoogle = async () => {
+    await signInWithPopup(auth, googleProvider);
+  };
 
-   const googleProvider = new GoogleAuthProvider();
+  const passwordReset = (email) => {
+    sendPasswordResetEmail(auth, email);
+  };
 
-   const handleSubmitGoogle = async () =>{
-    await signInWithPopup(auth, googleProvider)
-   }
+  const signOutNow = () => {
+    signOut(auth);
+  };
 
-   const passwordReset = (email) =>{
-    sendPasswordResetEmail(auth, email)
-  
-   }
+  const [uid, setUid] = useState(null);
+  const [user, setUser] = useState(null);
 
-   const signOutNow = () =>{
-    signOut(auth)
-   }
-
-
-
-   const [uid, setUid] = useState(null)
-   const [user, setUser] = useState(null)
-
-
-   onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
       setUid(user.uid);
-      setUser(user.displayName || user.email)
-      
-      // ...
-    } else {
-      // User is signed out
-      // ...
+      setUser(user.displayName || user.email);
     }
   });
 
-    return <context.Provider value={{handleRegister, handleSignIn, passwordReset, handleSubmitGoogle, googleProvider, signOutNow, uid, user}}>
-        {children}
+  return (
+    <context.Provider
+      value={{
+        handleRegister,
+        handleSignIn,
+        passwordReset,
+        handleSubmitGoogle,
+        googleProvider,
+        signOutNow,
+        uid,
+        user,
+      }}
+    >
+      {children}
     </context.Provider>
-};
+  );
+}

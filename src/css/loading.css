@@ -3,6 +3,7 @@
     height: 100vh;
     background-color: rgb(17, 16, 19);
    
+
     position: fixed;
     z-index: 100;
     display: flex;

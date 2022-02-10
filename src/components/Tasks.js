@@ -58,7 +58,9 @@ const Tasks = ({data, title, trigger, setTrigger, setShowLoading}) =>{
 const getDays = (date) =>{
    const days = (new Date().getTime()-new Date(date).getTime())/(1000*60*60*24);
    return(`Creado hace ${parseInt(days)} dias`)
-}    
+}  
+
+
 
  return(
 
