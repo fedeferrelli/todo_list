@@ -1,44 +1,34 @@
-import React, {useState, useEffect, useContext} from 'react';
-import { context } from '../AuthContext/AuthContext';
-import { useNavigate } from 'react-router';
-import {db} from '../firebase/config';
-
-/* import Loading from './Loading'; */
-
+import React, { useState, useEffect, useContext } from "react";
+import { context } from "../AuthContext/AuthContext";
+import { useNavigate } from "react-router";
+import { db } from "../firebase/config";
+import FadeIn from "react-fade-in";
 
 import { collection, getDocs } from "firebase/firestore";
 
+import Tasks from "./Tasks";
+import SearchAndAdd from "./Search&Add";
 
-import Tasks from './Tasks';
-import SearchAndAdd from './Search&Add'
+import "../css/Tasks.css";
 
-import '../css/Tasks.css'
+const ShowTasks = ({ setTrigger, trigger, setShowLoading }) => {
+  const [search, setSearch] = useState("");
 
-const ShowTasks = ({setTrigger, trigger, setShowLoading}) =>{
+  const [toDoData, setToDoData] = useState([]);
+  const [progressData, setProgressData] = useState([]);
+  const [doneData, setDoneData] = useState([]);
 
-    const [search, setSearch] = useState('')
+  const { uid, signOutNow } = useContext(context);
 
-    const [toDoData, setToDoData] = useState([]);
-    const [progressData, setProgressData] = useState([]);
-    const [doneData, setDoneData] = useState([]);
-   
-   
+  const navigate = useNavigate();
 
-    const {uid, signOutNow} = useContext(context);
-   
-    const navigate = useNavigate();
+  const signOutRightNow = (e) => {
+    e.preventDefault();
+    signOutNow();
+    navigate("/");
+  };
 
-   
-
-    const signOutRightNow = (e) =>{
-        e.preventDefault();
-        signOutNow()
-        navigate('/')
-    }
-
-useEffect(() => {
-
-
+  useEffect(() => {
     const getData = async () => {
       const querySnapshot = await getDocs(collection(db, uid));
 
@@ -50,69 +40,61 @@ useEffect(() => {
         datos.push(tareas);
       });
 
-      const dataOk = datos.filter(item => ( item.tarea.toLowerCase().includes(search.toLowerCase()) ||  item.descripcion.toLowerCase().includes(search.toLowerCase()) ))
-      
+      const dataOk = datos.filter(
+        (item) =>
+          item.tarea.toLowerCase().includes(search.toLowerCase()) ||
+          item.descripcion.toLowerCase().includes(search.toLowerCase())
+      );
 
-
-      dataOk.sort((a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime() )      
-      setToDoData(dataOk.filter(task => task.estadio==='para hacer'))
-      setProgressData(dataOk.filter(task => task.estadio==='progreso'))
-      setDoneData(dataOk.filter(task => task.estadio==='hecho'))
-      setShowLoading(false)
+      dataOk.sort(
+        (a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime()
+      );
+      setToDoData(dataOk.filter((task) => task.estadio === "para hacer"));
+      setProgressData(dataOk.filter((task) => task.estadio === "progreso"));
+      setDoneData(dataOk.filter((task) => task.estadio === "hecho"));
+      setShowLoading(false);
     };
-    
-      getData();
-      /*  */
+
+    getData();
   }, [trigger, uid, search, setShowLoading]);
 
-
- return (
-
-  
-   <div style={{display: 'flex', flexDirection: 'column'}}> 
-
-
-       
-
-        <div className='.search-and-add'>
-        <SearchAndAdd
-        
-        setSearch={setSearch}
-        
-        />
+  return (
+    <FadeIn delay={1000}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className=".search-and-add">
+          <SearchAndAdd setSearch={setSearch} />
         </div>
 
-    <div className='showTasks'> 
-        <Tasks 
-        data={toDoData}
-        title='Things To Do'
-        trigger = {trigger}
-        setTrigger = {setTrigger} 
-        setShowLoading={setShowLoading}
-        />
-    
-        <Tasks 
-        data={progressData}
-        title='Things In Progress'
-        trigger = {trigger}
-        setTrigger = {setTrigger}
-        setShowLoading={setShowLoading}
-         />
-    
-        <Tasks 
-        data={doneData}
-        title='Things Already Done'
-        trigger = {trigger}
-        setTrigger = {setTrigger}
-        setShowLoading={setShowLoading}
-         />
-    
-    </div>
+        <div className="showTasks">
+          <Tasks
+            data={toDoData}
+            title="Things To Do"
+            trigger={trigger}
+            setTrigger={setTrigger}
+            setShowLoading={setShowLoading}
+          />
+          <Tasks
+            data={progressData}
+            title="Things In Progress"
+            trigger={trigger}
+            setTrigger={setTrigger}
+            setShowLoading={setShowLoading}
+          />
+          <Tasks
+            data={doneData}
+            title="Things Already Done"
+            trigger={trigger}
+            setTrigger={setTrigger}
+            setShowLoading={setShowLoading}
+          />
+        </div>
+        <button className="log-out" onClick={signOutRightNow}>
+          {" "}
+          cerrar sesión{" "}
+        </button>
+      </div>
+    </FadeIn>
+  );
+};
 
-    <button className='log-out' onClick={signOutRightNow}> cerrar sesión </button>
-
-    </div>
-        )
-    };
-
-export default ShowTasks;    
+export default ShowTasks;
