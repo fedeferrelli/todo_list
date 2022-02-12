@@ -34,7 +34,7 @@
 
 .add-button {
   width: auto;
-
+  
   box-sizing: border-box;
 
   font-size: 1rem;
@@ -48,8 +48,8 @@
 
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: auto;
-  padding-bottom: auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 
   margin-right: auto;
   margin-left: auto;
@@ -58,9 +58,10 @@
   outline: none;
   border: none;
   text-decoration: none;
-
+  
   transition: ease-in 300ms;
   cursor: pointer;
+
 
 }
 
@@ -97,14 +98,14 @@
   .add-button,
   .user {
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 1.5rem;
   }
 
   .add-button {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .user {

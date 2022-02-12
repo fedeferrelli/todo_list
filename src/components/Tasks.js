@@ -18,7 +18,7 @@ const Tasks = ({data, title, trigger, setTrigger, setShowLoading}) =>{
     const {uid} = useContext(context)
 
 
-     const deleteTask = (id, tarea) => {
+     const deleteTask = async (id, tarea) => {
         
        
         if(window.confirm(`¿estás seguro que queres elminar ${tarea.toUpperCase()}?`) )
@@ -26,7 +26,7 @@ const Tasks = ({data, title, trigger, setTrigger, setShowLoading}) =>{
         
         
         { try {
-            deleteDoc(doc(db, uid, id));
+            await deleteDoc(doc(db, uid, id));
             setTrigger(!trigger)
             setShowLoading(true)
            
@@ -36,11 +36,11 @@ const Tasks = ({data, title, trigger, setTrigger, setShowLoading}) =>{
          }} 
     } 
 
-    const actualizeTask = (id, tarea, estadioFinal) => {
+    const actualizeTask = async (id, tarea, estadioFinal) => {
         if(window.confirm(`¿estás seguro que queres actualizar ${tarea.toUpperCase()} a ${estadioFinal.toUpperCase()}`) )
         
         { try {
-            updateDoc(doc(db, uid, id), {
+            await updateDoc(doc(db, uid, id), {
 
                 estadio: estadioFinal
               });

@@ -1,3 +1,6 @@
+* {
+  font-size: 16px;
+}
 
 .showTasks {
   display: flex;
@@ -7,7 +10,6 @@
   margin: auto;
   margin-bottom: 3rem;
   padding-top: 1rem;
-
 }
 
 .tasks {
@@ -43,7 +45,7 @@
 
 .tasks:hover {
   transform: translateY(-0.1rem);
- /*  box-shadow: darkgray 0px 0px 1rem; */
+  /*  box-shadow: darkgray 0px 0px 1rem; */
 }
 
 .titleToDo,
@@ -110,7 +112,7 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   letter-spacing: 0.1rem;
-  margin-top: 0.30rem;
+  margin-top: 0.3rem;
   color: darkgray;
 }
 
@@ -135,7 +137,6 @@
 }
 
 .delete:hover {
- 
   background-color: lightgrey;
   transition-duration: 500ms;
 }
@@ -176,9 +177,9 @@
   color: rgb(49, 47, 47);
 }
 
-.log-out{
+.log-out {
   width: auto;
-  
+
   box-sizing: border-box;
 
   font-size: 1rem;
@@ -202,7 +203,7 @@
   outline: none;
   border: none;
   text-decoration: none;
-  
+
   transition: ease-in 300ms;
   cursor: pointer;
   margin-bottom: 4rem;
@@ -215,8 +216,7 @@
 
 @media (max-width: 450px) {
   * {
-    font-size: 17px;
-
+    font-size: 18px;
   }
 
   .showTasks {
@@ -233,8 +233,9 @@
     transform: scale(1);
   }
 
-  .log-out{
+  .log-out {
     width: 90%;
     height: 3rem;
+    font-size: 1.1rem;
   }
 }
