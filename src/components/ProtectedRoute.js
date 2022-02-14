@@ -1,17 +1,15 @@
-import React, {useContext} from 'react';
+import React, { useContext } from "react";
 
-import { context } from '../AuthContext/AuthContext';
+import { context } from "../AuthContext/AuthContext";
 
-import { Navigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 
-function ProtectedRoute({children}) {
+function ProtectedRoute({ children }) {
+  const { uid } = useContext(context);
 
-    const { uid } = useContext(context);
+  if (!uid) return <Navigate to="/" />;
 
-    if (!uid) return <Navigate to="/" />;
-
-    return <> {children} </>;   
-   
+  return <> {children} </>;
 }
 
-export default ProtectedRoute
+export default ProtectedRoute;

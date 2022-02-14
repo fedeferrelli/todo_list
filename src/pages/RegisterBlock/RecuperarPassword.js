@@ -1,11 +1,8 @@
 import React, { useState, useContext } from "react";
 
-
-
 import { context } from "../../AuthContext/AuthContext";
 
-
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Image from "../../assets/portrait.svg";
 
@@ -18,16 +15,14 @@ function RecuperarPassword() {
 
   const [succesMessage, setSuccesMessage] = useState("");
 
-  const { passwordReset } = useContext(context)
-
- 
+  const { passwordReset } = useContext(context);
 
   const SettingEmail = (e) => {
     setEmail(e);
     setMessage("");
   };
 
-/* const handleSubmit = async (e) => {
+  /* const handleSubmit = async (e) => {
   e.preventDefault();
 
   if (email === "") {
@@ -52,37 +47,30 @@ function RecuperarPassword() {
   }
 }; */
 
-console.log(email)
-const handleSubmitPassword = async (e) =>{
-  e.preventDefault();
-  
-  if (email===''){
-    setMessage('Debés ingresar un correo')
-  }
+  console.log(email);
+  const handleSubmitPassword = async (e) => {
+    e.preventDefault();
 
-  else{
-    try{
-      await passwordReset(email)
-      setSuccesMessage('Ya enviamos un correo a la casilla que ingresaste. Recordá mirar la carpeta de SPAM')
-      
-    }
-    catch(err){
+    if (email === "") {
+      setMessage("Debés ingresar un correo");
+    } else {
+      try {
+        await passwordReset(email);
+        setSuccesMessage(
+          "Ya enviamos un correo a la casilla que ingresaste. Recordá mirar la carpeta de SPAM"
+        );
+      } catch (err) {
+        console.log(err.code);
 
-      console.log(err.code)
-
-      if (err.code === 'auth/invalid-email'){
-        setMessage('No puedes registarte con ese correo porque ya está en uso.')
+        if (err.code === "auth/invalid-email") {
+          setMessage(
+            "No puedes registarte con ese correo porque ya está en uso."
+          );
+        } else
+          setMessage("Por favor verificá la dirección de correo ingresada.");
       }
-
-      else setMessage('Por favor verificá la dirección de correo ingresada.')
-
     }
-  }
-
-
-}
-   
-  
+  };
 
   return (
     <div>
@@ -100,7 +88,10 @@ const handleSubmitPassword = async (e) =>{
                 <h1 className="titulo-lr"> Recuperar Contraseña</h1>
 
                 <div className="bloque-lr">
-                  <form onSubmit={handleSubmitPassword} className="form-body-lr">
+                  <form
+                    onSubmit={handleSubmitPassword}
+                    className="form-body-lr"
+                  >
                     <div className="bloque-big-screen-lr">
                       <div className="form-bloque-lr">
                         <label className="form-label-lr" htmlFor="email">
@@ -135,24 +126,23 @@ const handleSubmitPassword = async (e) =>{
                 </div>
               </div>
             </div>
-          
 
-          <div>
-            {message && (
-              <div className="show-error-lr">
-                <h1 className="error-titulo-lr">Error:</h1>
+            <div>
+              {message && (
+                <div className="show-error-lr">
+                  <h1 className="error-titulo-lr">Error:</h1>
 
-                <p className="error-mensaje-lr">{message}</p>
-              </div>
-            )}
+                  <p className="error-mensaje-lr">{message}</p>
+                </div>
+              )}
 
-            {succesMessage && (
-              <div className="show-succes-lr">
-                <h1 className="succes-titulo-lr">Excelente!</h1>
+              {succesMessage && (
+                <div className="show-succes-lr">
+                  <h1 className="succes-titulo-lr">Excelente!</h1>
 
-                <p className="succes-mensaje-lr">{succesMessage}</p>
-              </div>
-            )}
+                  <p className="succes-mensaje-lr">{succesMessage}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>

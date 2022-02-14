@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
-import { context } from "../AuthContext/AuthContext";
+import { context } from "../../AuthContext/AuthContext";
 
-import {db} from "../firebase/config";
+import { db } from "../../firebase/config";
 
 import { useNavigate } from "react-router-dom";
 
 import { collection, addDoc } from "firebase/firestore";
 
-import "../css/cargaDatos.css";
+import "../../css/cargaDatos.css";
 
 const CargaDatos = ({ trigger, setTrigger, setShowLoading }) => {
   // States para los datos
@@ -16,9 +16,9 @@ const CargaDatos = ({ trigger, setTrigger, setShowLoading }) => {
   const [descripcion, setDescripcion] = useState("");
   const [estadio, setEstadio] = useState("para hacer");
 
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
-  const {uid} = useContext(context)
+  const { uid } = useContext(context);
 
   const navigate = useNavigate();
 
@@ -27,39 +27,34 @@ const CargaDatos = ({ trigger, setTrigger, setShowLoading }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (tarea===''){
-      setMessage("Debés ingresar una tarea.")
-    }
-    else{
+    if (tarea === "") {
+      setMessage("Debés ingresar una tarea.");
+    } else {
+      try {
+        await addDoc(collection(db, uid), {
+          tarea: tarea,
+          descripcion: descripcion,
+          estadio: estadio,
+          fecha: Date(),
+          fecha2: Math.round(new Date()),
+        });
+        setShowLoading(true);
+        setTarea("");
+        setDescripcion("");
+        setEstadio("para hacer");
 
-    try {
-      await addDoc(collection(db, uid), {
-        
-        tarea: tarea,
-        descripcion: descripcion,
-        estadio: estadio,
-        fecha: Date(),
-        fecha2: Math.round(new Date()),
-      });
-      setShowLoading(true)
-      setTarea("");
-      setDescripcion("");
-      setEstadio("para hacer");
-     
-      
-      setTrigger(!trigger);
-      navigate("/tasks");
-    } catch (err) {
-      console.error("Ocurrió un error al cargar la tarea: ", err);
+        setTrigger(!trigger);
+        navigate("/tasks");
+      } catch (err) {
+        console.error("Ocurrió un error al cargar la tarea: ", err);
+      }
     }
-
-  }
   };
 
-  const cancel = () =>{
-    setShowLoading(true)
+  const cancel = () => {
+    setShowLoading(true);
     navigate("/tasks");
-  } 
+  };
 
   return (
     <div>

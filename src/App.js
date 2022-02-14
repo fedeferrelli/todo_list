@@ -1,14 +1,14 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 
-import CargaDatos from "./components/CargaDatos";
+import CargaDatos from "./pages/CargaDatos/CargaDatos";
 
-import ShowTasks from "./components/ShowTasks";
+import ShowTasks from "./pages/Tasks/ShowTasks";
 
-import Login from "./components/Registro_Login/Login";
+import Login from "./pages/RegisterBlock/Login";
 
-import Register from "./components/Registro_Login/Register";
+import Register from "./pages/RegisterBlock/Register";
 
-import RecuperarPassword from "./components/Registro_Login/RecuperarPassword";
+import RecuperarPassword from "./pages/RegisterBlock/RecuperarPassword";
 
 import Loading from "./components/Loading";
 
@@ -16,18 +16,13 @@ import NotFoundPage from "./components/NotFoundPage";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
-import { AuthProvider } from './AuthContext/AuthContext'
+import { AuthProvider } from "./AuthContext/AuthContext";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
- 
-
   const [trigger, setTrigger] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
- 
 
   return (
     <AuthProvider>
@@ -83,6 +78,6 @@ function App() {
       </BrowserRouter>
     </AuthProvider>
   );
-  }
+}
 
 export default App;

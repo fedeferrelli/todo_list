@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import { context } from "../AuthContext/AuthContext";
+import { context } from "../../AuthContext/AuthContext";
 import { useNavigate } from "react-router";
-import { db } from "../firebase/config";
+import { db } from "../../firebase/config";
 import FadeIn from "react-fade-in";
 
 import { collection, getDocs } from "firebase/firestore";
@@ -9,7 +9,7 @@ import { collection, getDocs } from "firebase/firestore";
 import Tasks from "./Tasks";
 import SearchAndAdd from "./Search&Add";
 
-import "../css/Tasks.css";
+import "../../css/Tasks.css";
 
 const ShowTasks = ({ setTrigger, trigger, setShowLoading }) => {
   const [search, setSearch] = useState("");
