@@ -26,9 +26,10 @@ const Tasks = ({data, title, trigger, setTrigger, setShowLoading}) =>{
         
         
         { try {
+            setShowLoading(true)
             await deleteDoc(doc(db, uid, id));
             setTrigger(!trigger)
-            setShowLoading(true)
+            
            
          } catch (error) {
              console.log(error)  
@@ -40,13 +41,14 @@ const Tasks = ({data, title, trigger, setTrigger, setShowLoading}) =>{
         if(window.confirm(`¿estás seguro que queres actualizar ${tarea.toUpperCase()} a ${estadioFinal.toUpperCase()}`) )
         
         { try {
+            setShowLoading(true)
             await updateDoc(doc(db, uid, id), {
 
                 estadio: estadioFinal
               });
               
             setTrigger(!trigger)
-            setShowLoading(true)
+         
             
 
          } catch (error) {
@@ -77,8 +79,8 @@ const getDays = (date) =>{
 
 <div className='tasks'>    
 
-<h1 className ={title==='Things To Do' ? 'titleToDo' :
-                title==='Things In Progress' ? 'titleProgress':
+<h1 className ={title==='Para Hacer' ? 'titleToDo' :
+                title==='En Progreso' ? 'titleProgress':
                 'titleDone' } >{title}</h1>
      
 <div className="container">
@@ -113,12 +115,12 @@ const getDays = (date) =>{
                 onClick={()=>actualizeTask(item.id, item.tarea, 
 
                     title==='Things To Do' ? 'progreso' :
-                    title==='Things In Progress' ? 'para hacer':
+                    title==='En Progreso' ? 'para hacer':
                     'para hacer' )}
 
                 >
-                    {(title==='Things To Do' ? 'progreso' :
-                    title==='Things In Progress' ? 'para hacer':
+                    {(title==='Para Hacer' ? 'progreso' :
+                    title==='En Progreso' ? 'para hacer':
                     'para hacer')}
                 </button>
                 </div>
@@ -127,11 +129,11 @@ const getDays = (date) =>{
                 <button
                 className='change-estadio'
                 onClick={()=>actualizeTask(item.id, item.tarea, 
-                    title==='Things To Do' ? 'hecho' :
-                    title==='Things In Progress' ? 'hecho':
+                    title==='Para Hacer' ? 'hecho' :
+                    title==='En Progreso' ? 'hecho':
                     'progreso' )}
-                >{(title==='Things To Do' ? 'hecho' :
-                title==='Things In Progress' ? 'hecho':
+                >{(title==='Para Hacer' ? 'hecho' :
+                title==='En Progreso' ? 'hecho':
                 'progreso')} </button>
 
                 </div>

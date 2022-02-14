@@ -68,21 +68,21 @@ const ShowTasks = ({ setTrigger, trigger, setShowLoading }) => {
         <div className="showTasks">
           <Tasks
             data={toDoData}
-            title="Things To Do"
+            title="Para Hacer"
             trigger={trigger}
             setTrigger={setTrigger}
             setShowLoading={setShowLoading}
           />
           <Tasks
             data={progressData}
-            title="Things In Progress"
+            title="En Progreso"
             trigger={trigger}
             setTrigger={setTrigger}
             setShowLoading={setShowLoading}
           />
           <Tasks
             data={doneData}
-            title="Things Already Done"
+            title="Finalizadas"
             trigger={trigger}
             setTrigger={setTrigger}
             setShowLoading={setShowLoading}
