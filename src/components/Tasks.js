@@ -114,7 +114,7 @@ const getDays = (date) =>{
                 className='change-estadio'
                 onClick={()=>actualizeTask(item.id, item.tarea, 
 
-                    title==='Things To Do' ? 'progreso' :
+                    title==='Para Hacer' ? 'progreso' :
                     title==='En Progreso' ? 'para hacer':
                     'para hacer' )}
 
