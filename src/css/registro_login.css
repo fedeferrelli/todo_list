@@ -266,26 +266,29 @@ margin-top: 4rem;
 }
 
 .botonera-google-lr{
-
-    width: 40%;
+    width:60%;
     max-width: 25rem;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
+    text-align: center;
 }
 
 .google-login-lr{
    width: 100%;
+
+   
    text-align: center;
     padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    
     background-color: white;
     border-radius: 10rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-transform: uppercase;
     font-weight: bold;
     border: none;
-   
-
 }
 
 .google-login-lr:hover{
@@ -350,7 +353,7 @@ margin-top: 4rem;
       }
 
     .botonera-google-lr{
-
         width: 81%;
     }
+
 }
